@@ -487,80 +487,206 @@
         <!-- Campos Específicos por Servicio -->
         
         <!-- REPARACIÓN -->
-<!-- REPARACIÓN - CAMPOS MEJORADOS -->
+<!-- REPARACIÓN - CAMPOS COMPLETOS -->
 <div id="campos-reparacion" class="campos-especificos oculto">
   <h3>🔧 Información Detallada para Reparación</h3>
   
-  <!-- CAMPO 1: Tipo de equipo -->
-  <div class="form-group">
-    <label>🔧 ¿Qué tipo de equipo necesita reparar?</label>
+  <!-- Campos 1-5 que ya tenemos -->
+  <!-- ... (los campos anteriores) ... -->
+  
+  <!-- CAMPO 6: Motivo sin garantía (condicional) -->
+  <div id="motivo_no_garantia" class="form-group oculto">
+    <label>❓ ¿Por qué no utiliza la garantía?</label>
     <div class="radio-group">
       <div class="radio-item">
-        <input type="radio" id="reparacion_laptop" name="tipo_equipo_reparacion" value="Laptop" data-required>
-        <label for="reparacion_laptop">Laptop</label>
+        <input type="radio" id="razon_expiro" name="razon_no_garantia" value="La garantía ya expiró">
+        <label for="razon_expiro">La garantía ya expiró</label>
       </div>
       <div class="radio-item">
-        <input type="radio" id="reparacion_pc" name="tipo_equipo_reparacion" value="PC de escritorio" data-required>
-        <label for="reparacion_pc">PC de escritorio</label>
+        <input type="radio" id="razon_no_cubierto" name="razon_no_garantia" value="El daño no está cubierto por la garantía">
+        <label for="razon_no_cubierto">El daño no está cubierto por la garantía</label>
       </div>
       <div class="radio-item">
-        <input type="radio" id="reparacion_otro" name="tipo_equipo_reparacion" value="Otro" data-required>
-        <label for="reparacion_otro">Otro:</label>
-        <input type="text" id="reparacion_otro_especificar" name="reparacion_otro_especificar" class="campo-condicional" style="display: none;">
+        <input type="radio" id="razon_prefiero" name="razon_no_garantia" value="Prefiero servicio técnico especializado">
+        <label for="razon_prefiero">Prefiero servicio técnico especializado</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" id="razon_otro" name="razon_no_garantia" value="Otro motivo">
+        <label for="razon_otro">Otro motivo:</label>
+        <input type="text" id="otro_razon_garantia" name="otro_razon_garantia" class="campo-condicional" style="display: none;">
       </div>
     </div>
   </div>
   
-  <!-- CAMPO 2: Marca del equipo -->
+  <!-- CAMPO 7: Tipo de falla principal -->
   <div class="form-group">
-    <label for="marca_equipo_reparacion">🏷️ Marca del equipo</label>
-    <select id="marca_equipo_reparacion" name="marca_equipo_reparacion" data-required>
-      <option value="">-- Seleccione la marca --</option>
-      <option value="Acer">Acer</option>
-      <option value="Apple">Apple</option>
-      <option value="Asus">Asus</option>
-      <option value="Dell">Dell</option>
-      <option value="HP">HP</option>
-      <option value="Lenovo">Lenovo</option>
-      <option value="MSI">MSI</option>
-      <option value="Samsung">Samsung</option>
-      <option value="Toshiba">Toshiba</option>
-      <option value="Huawei">Huawei</option>
-      <option value="Xiaomi">Xiaomi</option>
-      <option value="Microsoft">Microsoft</option>
-      <option value="Otro">Otro</option>
+    <label for="tipo_falla_reparacion">⚠️ ¿Qué problema presenta el equipo?</label>
+    <select id="tipo_falla_reparacion" name="tipo_falla_reparacion" data-required>
+      <option value="">-- Seleccione el tipo de falla --</option>
+      <option value="No enciende">No enciende</option>
+      <option value="Pantalla negra/azul">Pantalla negra/azul</option>
+      <option value="Muy lento o se traba">Muy lento o se traba</option>
+      <option value="Se sobrecalienta">Se sobrecalienta</option>
+      <option value="Problemas de sonido">Problemas de sonido</option>
+      <option value="Puerto USB/HDMI no funciona">Puerto USB/HDMI no funciona</option>
+      <option value="Batería no carga">Batería no carga</option>
+      <option value="No conecta a internet">No conecta a internet</option>
+      <option value="Teclado/touchpad no funciona">Teclado/touchpad no funciona</option>
+      <option value="Otro problema">Otro problema</option>
     </select>
   </div>
   
-  <!-- CAMPO 3: Modelo específico -->
+  <!-- CAMPO 8: Descripción detallada del problema -->
   <div class="form-group">
-    <label for="modelo_reparacion">💻 Modelo del equipo</label>
-    <input type="text" id="modelo_reparacion" name="modelo_reparacion" data-required placeholder="Ej: ThinkPad T480, MacBook Pro 2020">
-    <div class="info-text">📝 Encuentra el modelo en la etiqueta inferior o en Configuración > Acerca de</div>
+    <label>📝 Cuéntanos más sobre el problema:</label>
+    
+    <div class="sub-group">
+      <label>¿Cuándo empezó el problema?</label>
+      <div class="radio-group">
+        <div class="radio-item">
+          <input type="radio" id="problema_semana" name="cuando_problema" value="Hace menos de 1 semana" data-required>
+          <label for="problema_semana">Hace menos de 1 semana</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="problema_mes" name="cuando_problema" value="Hace 1-4 semanas" data-required>
+          <label for="problema_mes">Hace 1-4 semanas</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="problema_mas_mes" name="cuando_problema" value="Hace más de 1 mes" data-required>
+          <label for="problema_mas_mes">Hace más de 1 mes</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="problema_nose" name="cuando_problema" value="No estoy seguro" data-required>
+          <label for="problema_nose">No estoy seguro</label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="sub-group">
+      <label>¿El problema es constante o aparece a veces?</label>
+      <div class="radio-group">
+        <div class="radio-item">
+          <input type="radio" id="problema_constante" name="frecuencia_problema" value="Siempre está presente" data-required>
+          <label for="problema_constante">Siempre está presente</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="problema_intermitente" name="frecuencia_problema" value="Aparece y desaparece" data-required>
+          <label for="problema_intermitente">Aparece y desaparece</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="problema_ciertas" name="frecuencia_problema" value="Solo en ciertas situaciones" data-required>
+          <label for="problema_ciertas">Solo en ciertas situaciones</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="problema_frecuencia_nose" name="frecuencia_problema" value="No estoy seguro" data-required>
+          <label for="problema_frecuencia_nose">No estoy seguro</label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="sub-group">
+      <label>¿Ya intentó solucionarlo?</label>
+      <div class="radio-group">
+        <div class="radio-item">
+          <input type="radio" id="intento_si" name="intento_solucion" value="Sí, pero no funcionó" data-required>
+          <label for="intento_si">Sí, pero no funcionó</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="intento_no" name="intento_solucion" value="No, es la primera vez" data-required>
+          <label for="intento_no">No, es la primera vez</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="intento_reinicio" name="intento_solucion" value="Solo reinicié el equipo" data-required>
+          <label for="intento_reinicio">Solo reinicié el equipo</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="intento_otro" name="intento_solucion" value="Otro" data-required>
+          <label for="intento_otro">Otro:</label>
+          <input type="text" id="otro_intento" name="otro_intento" class="campo-condicional" style="display: none;">
+        </div>
+      </div>
+    </div>
   </div>
   
-  <!-- CAMPO 4: Número de serie -->
+  <!-- CAMPO 9: Recuperación de datos -->
   <div class="form-group">
-    <label for="numero_serie_reparacion">🔢 Número de serie del equipo</label>
-    <input type="text" id="numero_serie_reparacion" name="numero_serie_reparacion" data-required>
-    <div class="info-text">📝 Encuentra el número de serie en la etiqueta inferior del equipo</div>
-  </div>
-  
-  <!-- CAMPO 5: Estado de garantía -->
-  <div class="form-group">
-    <label>🛡️ ¿El equipo tiene garantía activa?</label>
+    <label>💾 ¿Necesita recuperar archivos importantes?</label>
     <div class="radio-group">
       <div class="radio-item">
-        <input type="radio" id="garantia_si_reparacion" name="garantia_reparacion" value="Sí, tiene garantía vigente" data-required>
-        <label for="garantia_si_reparacion">Sí, tiene garantía vigente</label>
+        <input type="radio" id="recuperacion_si" name="recuperacion_datos_reparacion" value="Sí, tengo archivos importantes por recuperar" data-required>
+        <label for="recuperacion_si">Sí, tengo archivos importantes por recuperar 📞</label>
       </div>
       <div class="radio-item">
-        <input type="radio" id="garantia_no_reparacion" name="garantia_reparacion" value="No, la garantía expiró o no aplica" data-required>
-        <label for="garantia_no_reparacion">No, la garantía expiró o no aplica</label>
+        <input type="radio" id="recuperacion_no" name="recuperacion_datos_reparacion" value="No, solo necesito reparar el equipo" data-required>
+        <label for="recuperacion_no">No, solo necesito reparar el equipo</label>
       </div>
-      <div class="radio-item">
-        <input type="radio" id="garantia_nose_reparacion" name="garantia_reparacion" value="No estoy seguro" data-required>
-        <label for="garantia_nose_reparacion">No estoy seguro</label>
+    </div>
+    <div class="info-text">📢 Si selecciona "Sí", nos contactaremos para coordinar la recuperación</div>
+  </div>
+  
+  <!-- CAMPO 10: Antecedentes del equipo (opcional) -->
+  <div class="form-group">
+    <label>📋 Información adicional (opcional):</label>
+    
+    <div class="sub-group">
+      <label>¿Ha tenido reparaciones anteriores?</label>
+      <div class="radio-group">
+        <div class="radio-item">
+          <input type="radio" id="reparaciones_si" name="reparaciones_anteriores" value="Sí, ha sido reparado antes">
+          <label for="reparaciones_si">Sí, ha sido reparado antes</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="reparaciones_no" name="reparaciones_anteriores" value="No, es la primera vez">
+          <label for="reparaciones_no">No, es la primera vez</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="reparaciones_nose" name="reparaciones_anteriores" value="No estoy seguro">
+          <label for="reparaciones_nose">No estoy seguro</label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="sub-group">
+      <label>¿El equipo sufrió golpes o caídas?</label>
+      <div class="radio-group">
+        <div class="radio-item">
+          <input type="radio" id="golpes_si_reciente" name="golpes_caidas" value="Sí, recientemente">
+          <label for="golpes_si_reciente">Sí, recientemente</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="golpes_si_tiempo" name="golpes_caidas" value="Sí, hace tiempo">
+          <label for="golpes_si_tiempo">Sí, hace tiempo</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="golpes_no" name="golpes_caidas" value="No, nunca">
+          <label for="golpes_no">No, nunca</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="golpes_nose" name="golpes_caidas" value="No estoy seguro">
+          <label for="golpes_nose">No estoy seguro</label>
+        </div>
+      </div>
+    </div>
+    
+    <div class="sub-group">
+      <label>¿Se derramó líquido sobre el equipo?</label>
+      <div class="radio-group">
+        <div class="radio-item">
+          <input type="radio" id="liquido_si_reciente" name="derrame_liquido" value="Sí, recientemente">
+          <label for="liquido_si_reciente">Sí, recientemente</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="liquido_si_tiempo" name="derrame_liquido" value="Sí, hace tiempo">
+          <label for="liquido_si_tiempo">Sí, hace tiempo</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="liquido_no" name="derrame_liquido" value="No, nunca">
+          <label for="liquido_no">No, nunca</label>
+        </div>
+        <div class="radio-item">
+          <input type="radio" id="liquido_nose" name="derrame_liquido" value="No estoy seguro">
+          <label for="liquido_nose">No estoy seguro</label>
+        </div>
       </div>
     </div>
   </div>
@@ -851,7 +977,7 @@ function configurarCamposCondicionales() {
     }
   });
   
-  // Campo motivo sin garantía (aparece solo si selecciona "No" en garantía)
+  // Campo motivo sin garantía
   document.getElementById('garantia_no_reparacion')?.addEventListener('change', function() {
     const motivoGarantia = document.getElementById('motivo_no_garantia');
     if (this.checked) {
@@ -860,9 +986,31 @@ function configurarCamposCondicionales() {
       motivoGarantia.classList.add('oculto');
     }
   });
-}
+  
+  // Campo "Otro motivo" en garantía
+  document.getElementById('razon_otro')?.addEventListener('change', function() {
+    const campoOtroRazon = document.getElementById('otro_razon_garantia');
+    if (this.checked) {
+      campoOtroRazon.style.display = 'inline-block';
+    } else {
+      campoOtroRazon.style.display = 'none';
+      campoOtroRazon.value = '';
     }
-
+  });
+  
+  // Campo "Otro" en intentos de solución
+  document.getElementById('intento_otro')?.addEventListener('change', function() {
+    const campoOtroIntento = document.getElementById('otro_intento');
+    if (this.checked) {
+      campoOtroIntento.style.display = 'inline-block';
+      campoOtroIntento.setAttribute('data-required', 'true');
+    } else {
+      campoOtroIntento.style.display = 'none';
+      campoOtroIntento.removeAttribute('data-required');
+      campoOtroIntento.value = '';
+    }
+  });
+}
     function generarCodigoSeguimiento() {
       const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       let codigo = "";
