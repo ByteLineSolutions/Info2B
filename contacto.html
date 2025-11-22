@@ -1,453 +1,530 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Contacto - Info.2B</title>
-  <link rel="stylesheet" href="css/estilos.css" />
-  <style>
-    body {
-      background: #0e0e0e;
-      color: #f0f0f0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    header {
-      background: #151515;
-      padding: 1rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    nav a {
-      color: #64ffda;
-      margin-left: 1rem;
-      text-decoration: none;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      max-width: 1000px;
-      margin: auto;
-      padding: 2rem;
-    }
-    h1 {
-      text-align: center;
-      color: #00e5ff;
-      margin-bottom: 2rem;
-    }
-    form {
-      background: #1c1c1c;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 0 10px #00000088;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-    }
-    form .full { grid-column: 1 / -1; }
-    label { font-weight: bold; color: #80cbc4; }
-    input, select, textarea {
-      width: 100%;
-      padding: 0.7rem;
-      border: none;
-      border-radius: 6px;
-      margin-top: 0.3rem;
-      background: #292929;
-      color: #fff;
-      font-size: 1rem;
-    }
-    button {
-      grid-column: 1 / -1;
-      padding: 0.8rem;
-      background: #00e676;
-      color: #000;
-      border: none;
-      border-radius: 8px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-    button:hover { background: #00c853; }
-    .checkbox { display: flex; align-items: center; gap: 0.5rem; font-size: 0.9rem; color: #ccc; }
-    #mensaje-exito {
-      margin-top: 2rem;
-      background: #1b2a21;
-      color: #a5f2c4;
-      padding: 1.5rem;
-      border-left: 5px solid #00e676;
-      border-radius: 10px;
-      display: none;
-      font-size: 1.1rem;
-    }
-    .oculto { display: none !important; }
-    .servicio-seleccionado {
-      background: rgba(0, 229, 255, 0.1);
-      padding: 1rem;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      border-left: 3px solid #00e5ff;
-    }
-    .campo-especifico {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      padding: 1rem;
-      background: rgba(0, 229, 255, 0.05);
-      border-radius: 8px;
-      margin-top: 1rem;
-      border: 1px solid rgba(0, 229, 255, 0.2);
-    }
-    .campo-especifico .full { grid-column: 1 / -1; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Mi Sitio Web</title>
+    <style>
+        /* Estilos generales */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #2c3e50;
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Contact Section */
+        .contact-section {
+            padding: 80px 0;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-info h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .contact-info p {
+            margin-bottom: 30px;
+            color: #555;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 20px;
+        }
+        
+        .contact-icon {
+            background-color: #3498db;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .contact-text h3 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .contact-text p {
+            margin: 0;
+            color: #666;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #f1f1f1;
+            border-radius: 50%;
+            color: #2c3e50;
+            transition: all 0.3s;
+        }
+        
+        .social-link:hover {
+            background-color: #3498db;
+            color: white;
+            transform: translateY(-3px);
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background-color: white;
+            border-radius: 10px;
+            padding: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .contact-form h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2c3e50;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+        
+        .form-control:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        /* Map Section */
+        .map-section {
+            padding: 0 0 80px;
+        }
+        
+        .map-container {
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .map-placeholder {
+            height: 100%;
+            background-color: #e9ecef;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 1.2rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 50px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #3498db;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                padding: 15px 0;
+            }
+            
+            .nav-links {
+                margin-top: 15px;
+            }
+            
+            .nav-links li {
+                margin: 0 10px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Info.2B</h1>
-    <nav>
-      <a href="index.html">Inicio</a>
-      <a href="servicios.html">Servicios</a>
-      <a href="seguimiento.html">Seguimiento</a>
-      <a href="blog.html">Blog</a>
-      <a href="contacto.html">Contacto</a>
-    </nav>
-  </header>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">MiSitio</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="servicios.html">Servicios</a></li>
+                    <li><a href="nosotros.html">Nosotros</a></li>
+                    <li><a href="contacto.html" class="active">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <main>
-    <h1>Formulario de Solicitud</h1>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Contáctanos</h1>
+            <p>Estamos aquí para ayudarte. Ponte en contacto con nosotros y te responderemos lo antes posible.</p>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <div class="contact-container">
+                <!-- Contact Info -->
+                <div class="contact-info">
+                    <h2>Información de Contacto</h2>
+                    <p>No dudes en contactarnos si tienes alguna pregunta, comentario o solicitud. Nuestro equipo está listo para ayudarte.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Dirección</h3>
+                                <p>Av. Principal 123, Ciudad, País</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Teléfono</h3>
+                                <p>+1 (555) 123-4567</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-text">
+                                <h3>Email</h3>
+                                <p>info@misitio.com</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h3>Síguenos en redes sociales</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="social-link">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h2>Envíanos un mensaje</h2>
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nombre completo</label>
+                            <input type="text" id="name" class="form-control" placeholder="Tu nombre" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Correo electrónico</label>
+                            <input type="email" id="email" class="form-control" placeholder="tu@email.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">Asunto</label>
+                            <input type="text" id="subject" class="form-control" placeholder="Asunto del mensaje" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Mensaje</label>
+                            <textarea id="message" class="form-control" placeholder="Escribe tu mensaje aquí..." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Enviar mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #2c3e50;">Nuestra ubicación</h2>
+            <div class="map-container">
+                <div class="map-placeholder">
+                    <p>Mapa interactivo - Ubicación de la empresa</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>MiSitio</h3>
+                    <p>Somos una empresa dedicada a ofrecer soluciones innovadoras para nuestros clientes. Nuestro compromiso es la calidad y la satisfacción del cliente.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="servicios.html">Servicios</a></li>
+                        <li><a href="nosotros.html">Nosotros</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Principal 123, Ciudad</li>
+                        <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+                        <li><i class="fas fa-envelope"></i> info@misitio.com</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 MiSitio. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Font Awesome para iconos -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
     
-    <!-- Mostrar el servicio seleccionado -->
-    <div id="servicioBanner" class="servicio-seleccionado oculto">
-      <strong>Servicio seleccionado:</strong>
-      <span id="servicioTitulo"></span>
-    </div>
-    
-    <form id="formularioContacto">
-      <!-- Campos comunes -->
-      <div class="full">
-        <label for="nombre_completo">Nombre completo</label>
-        <input type="text" id="nombre_completo" name="nombre_completo" required />
-      </div>
-      <div>
-        <label for="dpi">DPI</label>
-        <input type="text" id="dpi" name="dpi" required placeholder="Ej. 1234 56789 0101" pattern="^\d{4}\s\d{5}\s\d{4}$" title="Debe ingresar el DPI con espacios. Ej: 1234 56789 0101" />
-      </div>
-      <div>
-        <label for="correo">Correo electrónico</label>
-        <input type="email" id="correo" name="correo" required />
-      </div>
-      <div>
-        <label for="telefono">Teléfono</label>
-        <input type="tel" id="telefono" name="telefono" required />
-      </div>
-
-      <!-- Servicio solicitado -->
-      <div class="full">
-        <label for="servicio_solicitado">Servicio solicitado</label>
-        <input type="text" id="servicio_solicitado" name="servicio_solicitado" readonly style="background: #333;" />
-      </div>
-
-      <!-- ======== Campos para Reparación ======== -->
-      <div id="campos-reparacion" class="campo-especifico oculto">
-        <div>
-          <label for="garantia">¿Tiene garantía?</label>
-          <select id="garantia" name="garantia">
-            <option value="">-- Seleccione --</option>
-            <option value="Si">Sí</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-        
-        <div id="motivoNoGarantia" class="full oculto">
-          <label for="razon_no_garantia">Motivo por el cual no tiene garantía:</label>
-          <textarea id="razon_no_garantia" name="razon_no_garantia" placeholder="Especifica el motivo..."></textarea>
-        </div>
-        
-        <div>
-          <label for="modelo_reparacion">Modelo del equipo:</label>
-          <input type="text" id="modelo_reparacion" name="modelo_reparacion" />
-        </div>
-        
-        <div class="full">
-          <label for="falla">Tipo de falla:</label>
-          <textarea id="falla" name="falla"></textarea>
-        </div>
-      </div>
-
-      <!-- ======== Campos para Mantenimiento ======== -->
-      <div id="campos-mantenimiento" class="campo-especifico oculto">
-        <div>
-          <label for="tipo_equipo_mantenimiento">Tipo de equipo:</label>
-          <input type="text" id="tipo_equipo_mantenimiento" name="tipo_equipo_mantenimiento" />
-        </div>
-        
-        <div>
-          <label for="frecuencia">Frecuencia de mantenimiento:</label>
-          <select id="frecuencia" name="frecuencia">
-            <option value="Unico">Único</option>
-            <option value="Mensual">Mensual</option>
-            <option value="Trimestral">Trimestral</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- ======== Campos para Formateo ======== -->
-      <div id="campos-formateo" class="campo-especifico oculto">
-        <div>
-          <label for="sistema">Sistema operativo:</label>
-          <input type="text" id="sistema" name="sistema" placeholder="Ej: Windows 10, Windows 11, Linux..." />
-        </div>
-        
-        <div>
-          <label for="respaldo">¿Requiere respaldo de archivos?</label>
-          <select id="respaldo" name="respaldo">
-            <option value="">-- Seleccione --</option>
-            <option value="Si">Sí</option>
-            <option value="No">No</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- ======== Campos para Cámaras ======== -->
-      <div id="campos-camaras" class="campo-especifico oculto">
-        <div>
-          <label for="tipoInstalacion">Tipo de instalación:</label>
-          <select id="tipoInstalacion" name="tipoInstalacion">
-            <option value="">-- Seleccione --</option>
-            <option value="Hogar">Hogar</option>
-            <option value="Empresa">Empresa</option>
-          </select>
-        </div>
-        
-        <div>
-          <label for="ubicacionCamara">Ubicación:</label>
-          <input type="text" id="ubicacionCamara" name="ubicacionCamara" placeholder="Ej: Casa, Oficina, Local..." />
-        </div>
-        
-        <div>
-          <label for="numeroCamaras">Número de cámaras:</label>
-          <input type="number" id="numeroCamaras" name="numeroCamaras" min="1" placeholder="Ej: 4" />
-        </div>
-      </div>
-
-      <!-- ======== Campos para Redes ======== -->
-      <div id="campos-redes" class="campo-especifico oculto">
-        <div>
-          <label for="tipoRed">Tipo de red:</label>
-          <select id="tipoRed" name="tipoRed">
-            <option value="">-- Seleccione --</option>
-            <option value="Hogar">Hogar</option>
-            <option value="Empresa">Empresa</option>
-          </select>
-        </div>
-        
-        <div>
-          <label for="alcance">Alcance requerido:</label>
-          <input type="text" id="alcance" name="alcance" placeholder="Ej: 100m², 2 pisos..." />
-        </div>
-        
-        <div>
-          <label for="ubicacionRed">Ubicación:</label>
-          <input type="text" id="ubicacionRed" name="ubicacionRed" placeholder="Ej: Casa, Oficina, Local..." />
-        </div>
-      </div>
-
-      <!-- Campos comunes adicionales -->
-      <div class="full">
-        <label for="problema">Descripción del problema / detalles del servicio</label>
-        <textarea id="problema" name="problema" rows="3" required placeholder="Describe en detalle lo que necesitas..."></textarea>
-      </div>
-
-      <div>
-        <label for="prioridad">Prioridad del caso</label>
-        <select id="prioridad" name="prioridad">
-          <option value="Normal">Normal</option>
-          <option value="Urgente">Urgente</option>
-          <option value="Critica">Crítica</option>
-        </select>
-      </div>
-      <div>
-        <label for="fecha_preferida">Fecha preferida</label>
-        <input type="date" id="fecha_preferida" name="fecha_preferida" />
-      </div>
-      <div class="checkbox full">
-        <input type="checkbox" id="acepto_politicas" name="acepto_politicas" required />
-        <label for="acepto_politicas">
-          He leído y acepto las <a href="politicas.html" target="_blank" style="color:#00e5ff;">políticas de privacidad</a>
-          y los <a href="terminos.html" target="_blank" style="color:#00e5ff;">términos y condiciones</a>.
-        </label>
-      </div>
-      <button type="submit">Enviar solicitud</button>
-    </form>
-
-    <div id="mensaje-exito"></div>
-  </main>
-
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
-    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyBJoYFUAJLkaeXA4Lu6T_GujtIgs96Ka0I",
-      authDomain: "info2b-firebase.firebaseapp.com",
-      projectId: "info2b-firebase",
-      storageBucket: "info2b-firebase.appspot.com",
-      messagingSenderId: "660484913472",
-      appId: "1:660484913472:web:e6aee88dc824a0c3e362a5"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    const form = document.getElementById("formularioContacto");
-    const mensajeExito = document.getElementById("mensaje-exito");
-    const servicioBanner = document.getElementById("servicioBanner");
-    const servicioTitulo = document.getElementById("servicioTitulo");
-    const servicioInput = document.getElementById("servicio_solicitado");
-
-    // Mostrar servicio seleccionado desde sessionStorage
-    const titulo = sessionStorage.getItem("servicio_titulo");
-    const precio = sessionStorage.getItem("servicio_precio");
-
-    if (titulo && precio) {
-      // Limpiar el precio (remover "Desde" si existe)
-      const precioLimpio = precio.replace('Desde ', '').trim();
-      const textoServicio = `${titulo} - Q${precioLimpio}`;
-      servicioTitulo.textContent = textoServicio;
-      servicioInput.value = textoServicio;
-      servicioBanner.classList.remove("oculto");
-
-      // Mostrar campos específicos según el servicio
-      mostrarCamposEspecificos(titulo);
-    }
-
-    // Función para mostrar campos específicos según el servicio
-    function mostrarCamposEspecificos(servicio) {
-      // Ocultar todos los campos específicos primero
-      document.querySelectorAll(".campo-especifico").forEach(div => {
-        div.classList.add("oculto");
-      });
-
-      // Mostrar campos según el servicio
-      const servicioLower = servicio.toLowerCase();
-      
-      if (servicioLower.includes("reparación") || servicioLower.includes("reparacion")) {
-        document.getElementById("campos-reparacion").classList.remove("oculto");
-      } else if (servicioLower.includes("mantenimiento")) {
-        document.getElementById("campos-mantenimiento").classList.remove("oculto");
-      } else if (servicioLower.includes("formateo")) {
-        document.getElementById("campos-formateo").classList.remove("oculto");
-      } else if (servicioLower.includes("cámara") || servicioLower.includes("camara")) {
-        document.getElementById("campos-camaras").classList.remove("oculto");
-      } else if (servicioLower.includes("red")) {
-        document.getElementById("campos-redes").classList.remove("oculto");
-      }
-    }
-
-    // Mostrar campo motivo si NO tiene garantía (para reparación)
-    document.addEventListener("DOMContentLoaded", () => {
-      const garantiaSelect = document.getElementById("garantia");
-      if (garantiaSelect) {
-        garantiaSelect.addEventListener("change", (e) => {
-          const motivoDiv = document.getElementById("motivoNoGarantia");
-          if (motivoDiv) {
-            motivoDiv.classList.toggle("oculto", e.target.value !== "No");
-          }
+    <!-- Script para el formulario -->
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Aquí iría la lógica para enviar el formulario
+            // Por ahora solo mostraremos un mensaje de éxito
+            alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
+            this.reset();
         });
-      }
-    });
-
-    function generarCodigoSeguimiento() {
-      const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-      let codigo = "";
-      for (let i = 0; i < 7; i++) {
-        codigo += letras.charAt(Math.floor(Math.random() * letras.length));
-      }
-      return codigo;
-    }
-
-    form.addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const data = {
-        nombre_completo: form.nombre_completo.value.trim(),
-        dpi: form.dpi.value.trim(),
-        correo: form.correo.value.trim(),
-        telefono: form.telefono.value.trim(),
-        problema: form.problema.value.trim(),
-        prioridad: form.prioridad.value,
-        fecha_preferida: form.fecha_preferida.value,
-        servicio_solicitado: form.servicio_solicitado.value.trim(),
-        acepto_politicas: form.acepto_politicas.checked,
-        estado: "Pendiente",
-        fecha_ingreso: serverTimestamp(),
-        codigo_seguimiento: generarCodigoSeguimiento()
-      };
-
-      // Agregar campos específicos según el servicio
-      const servicio = sessionStorage.getItem("servicio_titulo") || "";
-      const servicioLower = servicio.toLowerCase();
-      
-      if (servicioLower.includes("reparación") || servicioLower.includes("reparacion")) {
-        data.garantia = form.garantia?.value || "";
-        data.razon_no_garantia = form.razon_no_garantia?.value || "";
-        data.modelo_equipo = form.modelo_reparacion?.value || "";
-        data.tipo_falla = form.falla?.value || "";
-      } else if (servicioLower.includes("mantenimiento")) {
-        data.tipo_equipo = form.tipo_equipo_mantenimiento?.value || "";
-        data.frecuencia_mantenimiento = form.frecuencia?.value || "";
-      } else if (servicioLower.includes("formateo")) {
-        data.sistema_operativo = form.sistema?.value || "";
-        data.respaldo_archivos = form.respaldo?.value || "";
-      } else if (servicioLower.includes("cámara") || servicioLower.includes("camara")) {
-        data.tipo_instalacion = form.tipoInstalacion?.value || "";
-        data.ubicacion_camara = form.ubicacionCamara?.value || "";
-        data.numero_camaras = form.numeroCamaras?.value || "";
-      } else if (servicioLower.includes("red")) {
-        data.tipo_red = form.tipoRed?.value || "";
-        data.alcance_red = form.alcance?.value || "";
-        data.ubicacion_red = form.ubicacionRed?.value || "";
-      }
-
-      try {
-        await addDoc(collection(db, "trabajos"), data);
-
-        const nombre = data.nombre_completo.split(" ")[0];
-        mensajeExito.innerHTML = `
-          <strong>¡Gracias, ${nombre}!</strong> Tu solicitud fue enviada correctamente.<br><br>
-          ✅ Código de seguimiento:
-          <code id="codigoCopiar" style="background:#222;padding:5px;border-radius:5px;">${data.codigo_seguimiento}</code>
-          <button id="btnCopiar" style="margin-left:10px;padding:3px 8px;font-size:0.9rem;cursor:pointer;">📋 Copiar</button>
-          <br><br>
-          Pronto nos pondremos en contacto contigo. 😊
-        `;
-        mensajeExito.style.display = "block";
-        form.reset();
-        
-        // Ocultar todos los campos específicos después del envío
-        document.querySelectorAll(".campo-especifico").forEach(div => {
-          div.classList.add("oculto");
-        });
-        servicioBanner.classList.add("oculto");
-        
-        servicioBanner.scrollIntoView({ behavior: "smooth" });
-
-        const btnCopiar = document.getElementById("btnCopiar");
-        const codigoSpan = document.getElementById("codigoCopiar");
-        btnCopiar.addEventListener("click", () => {
-          navigator.clipboard.writeText(codigoSpan.textContent)
-            .then(() => { 
-              btnCopiar.textContent = "✅ Copiado"; 
-              setTimeout(() => { btnCopiar.textContent = "📋 Copiar"; }, 2000); 
-            })
-            .catch(() => { btnCopiar.textContent = "❌ Error"; });
-        });
-
-      } catch (error) {
-        mensajeExito.innerHTML = `<span style="color:#ff5252;">❌ Error al enviar: ${error.message}</span>`;
-        mensajeExito.style.display = "block";
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
