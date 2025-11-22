@@ -593,6 +593,21 @@
     // Busca coincidencia EXACTA con los títulos de Firebase
     return servicioImages[titulo] || 'https://github.com/juarezmarcos123/Info2B/blob/main/img/mantenimiento_computadora.jpg?raw=true';
   }
+  
+  // ... después de la función getServicioImage ...
+
+function determinarTipoServicio(titulo) {
+    const tituloLower = titulo.toLowerCase();
+    if (tituloLower.includes("reparación") || tituloLower.includes("reparacion")) return "reparacion";
+    if (tituloLower.includes("mantenimiento")) return "mantenimiento";
+    if (tituloLower.includes("formateo")) return "formateo";
+    if (tituloLower.includes("cámara") || tituloLower.includes("camara")) return "camaras";
+    if (tituloLower.includes("soporte")) return "soporte";
+    if (tituloLower.includes("red") || tituloLower.includes("conexión")) return "redes";
+    return "general";
+}
+
+// ... y luego sigue la función mostrarModal actual ...
 
   async function cargarServicios() {
     try {
@@ -639,23 +654,26 @@
     });
   }
 
-  function mostrarModal(s) {
+function mostrarModal(s) {
     document.getElementById("modalTitulo").textContent = s.titulo;
     document.getElementById("modalDescripcion").textContent = s.descripcion_detallada;
     document.getElementById("modalPrecio").textContent = s.precio;
 
     const btn = document.getElementById("btnSolicitar");
     
-    // Guardar título y precio en sessionStorage
-    sessionStorage.setItem("servicio_titulo", s.titulo);
-    sessionStorage.setItem("servicio_precio", s.precio);
-
-    // Redirige a contacto
+    // MEJORA: Guardar MÁS datos del servicio
+    const servicioData = {
+        titulo: s.titulo,
+        precio: s.precio,
+        tipo: determinarTipoServicio(s.titulo), // NUEVO: tipo de servicio
+        descripcion: s.descripcion_detallada,
+        timestamp: new Date().getTime()
+    };
+    
+    sessionStorage.setItem("servicio_seleccionado", JSON.stringify(servicioData));
     btn.href = "contacto.html";
-
     document.getElementById("modalServicio").style.display = "flex";
-  }
-
+}
   // Cerrar modal
   document.querySelector(".modal-close").onclick = () =>
     document.getElementById("modalServicio").style.display = "none";
