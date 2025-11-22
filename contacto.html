@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contacto - Info.2B</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
   <style>
     :root {
       --primary: #2563eb;
@@ -33,7 +35,7 @@
       min-height: 100vh;
     }
 
-    /* Header con efecto cristal mejorado */
+    /* Header */
     header {
       background: rgba(15, 23, 42, 0.85);
       backdrop-filter: blur(20px);
@@ -74,7 +76,6 @@
       padding: 0.5rem 1rem;
       border-radius: 8px;
       transition: all 0.3s ease;
-      position: relative;
     }
 
     nav a:hover {
@@ -87,13 +88,12 @@
       background: rgba(37, 99, 235, 0.2);
     }
 
-    /* Hero section */
+    /* Hero Section */
     .contact-hero {
       text-align: center;
       padding: 4rem 2rem;
       background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, transparent 50%);
       position: relative;
-      overflow: hidden;
     }
 
     .contact-hero h1 {
@@ -113,14 +113,14 @@
       margin: 0 auto;
     }
 
-    /* Main content */
+    /* Main Content */
     main {
       max-width: 1000px;
       margin: 2rem auto;
       padding: 0 2rem;
     }
 
-    /* Servicio seleccionado banner */
+    /* Servicio Seleccionado */
     .servicio-seleccionado {
       background: linear-gradient(135deg, rgba(37, 99, 235, 0.15), rgba(6, 182, 212, 0.1));
       border: 1px solid rgba(37, 99, 235, 0.3);
@@ -141,27 +141,14 @@
       font-weight: 600;
     }
 
-    /* Form styles */
-    form {
-      background: linear-gradient(145deg, rgba(37, 99, 235, 0.05) 0%, rgba(6, 182, 212, 0.05) 100%);
+    /* Form Container */
+    .form-container {
+      background: rgba(255, 255, 255, 0.05);
       backdrop-filter: blur(15px);
       border: 1px solid rgba(255, 255, 255, 0.12);
       border-radius: 20px;
       padding: 2.5rem;
-      transition: all 0.4s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    form::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
-      transform: scaleX(1);
+      margin-bottom: 2rem;
     }
 
     .form-grid {
@@ -207,25 +194,16 @@
       resize: vertical;
     }
 
-    /* Campos específicos por servicio */
-    .campo-especifico {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      padding: 1.5rem;
+    /* Campos Específicos */
+    .campos-especificos {
       background: rgba(15, 23, 42, 0.4);
       border-radius: 12px;
-      margin-top: 1rem;
+      padding: 1.5rem;
+      margin: 1.5rem 0;
       border: 1px solid rgba(37, 99, 235, 0.2);
     }
 
-    .campo-especifico .full {
-      grid-column: 1 / -1;
-    }
-
-    .campo-especifico h3 {
-      grid-column: 1 / -1;
+    .campos-especificos h3 {
       color: var(--primary);
       margin-bottom: 1rem;
       font-size: 1.2rem;
@@ -233,47 +211,34 @@
       padding-bottom: 0.5rem;
     }
 
+    .radio-group, .checkbox-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .radio-item, .checkbox-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .radio-item input, .checkbox-item input {
+      width: auto;
+    }
+
     .sub-group {
       margin-bottom: 1rem;
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 8px;
     }
 
     .sub-group label {
       font-size: 0.9rem;
       color: var(--gray-light);
       margin-bottom: 0.3rem;
-    }
-
-    .checkbox-group {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 0.5rem;
-    }
-
-    .checkbox-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .checkbox-item input {
-      width: auto;
-    }
-
-    .radio-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .radio-item {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .radio-item input {
-      width: auto;
     }
 
     .info-text {
@@ -295,7 +260,7 @@
       color: var(--accent);
     }
 
-    /* Términos y condiciones */
+    /* Términos */
     .terminos {
       background: rgba(15, 23, 42, 0.6);
       border-radius: 12px;
@@ -347,7 +312,7 @@
       text-decoration: underline;
     }
 
-    /* Botón de envío */
+    /* Botón */
     .btn-submit {
       width: 100%;
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
@@ -358,24 +323,7 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
       font-size: 1.1rem;
-    }
-
-    .btn-submit::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-      transition: left 0.5s ease;
-    }
-
-    .btn-submit:hover::before {
-      left: 100%;
     }
 
     .btn-submit:hover {
@@ -383,7 +331,7 @@
       box-shadow: 0 10px 25px rgba(37, 99, 235, 0.4);
     }
 
-    /* Mensaje de éxito */
+    /* Mensaje éxito */
     #mensaje-exito {
       margin-top: 2rem;
       background: rgba(16, 185, 129, 0.15);
@@ -392,13 +340,6 @@
       border-radius: 12px;
       display: none;
       border: 1px solid rgba(16, 185, 129, 0.3);
-      backdrop-filter: blur(10px);
-    }
-
-    #mensaje-exito strong {
-      font-size: 1.2rem;
-      display: block;
-      margin-bottom: 0.5rem;
     }
 
     #btnCopiar {
@@ -449,34 +390,16 @@
         font-size: 2.2rem;
       }
 
-      .contact-hero p {
-        font-size: 1.1rem;
-      }
-
       main {
         padding: 0 1rem;
       }
 
-      form {
+      .form-container {
         padding: 1.5rem;
       }
 
       .form-grid {
         grid-template-columns: 1fr;
-      }
-
-      .campo-especifico {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .contact-hero h1 {
-        font-size: 1.8rem;
-      }
-
-      form {
-        padding: 1rem;
       }
     }
 
@@ -500,1608 +423,284 @@
   </header>
 
   <section class="contact-hero">
-    <h1>Formulario de Solicitud</h1>
+    <h1>Solicitar Servicio</h1>
     <p>Complete la información requerida para su servicio seleccionado</p>
   </section>
 
   <main>
-    <!-- Mostrar el servicio seleccionado -->
+    <!-- Servicio Seleccionado -->
     <div id="servicioBanner" class="servicio-seleccionado oculto">
       <strong>Servicio seleccionado:</strong>
       <span id="servicioTitulo"></span>
     </div>
-    
-    <form id="formularioContacto">
-      <!-- Campos comunes -->
-      <div class="form-grid">
-        <div class="full">
-          <h3>Datos Personales</h3>
-        </div>
-        
-        <div class="form-group">
-          <label for="nombre_completo">👤 Nombre completo</label>
-          <input type="text" id="nombre_completo" name="nombre_completo" required />
-        </div>
-        
-        <div class="form-group">
-          <label for="telefono">📞 Teléfono</label>
-          <input type="tel" id="telefono" name="telefono" required />
-        </div>
-        
-        <div class="form-group">
-          <label for="dpi">🆔 DPI</label>
-          <input type="text" id="dpi" name="dpi" required placeholder="Ej. 1234 56789 0101" pattern="^\d{4}\s\d{5}\s\d{4}$" title="Debe ingresar el DPI con espacios. Ej: 1234 56789 0101" />
-        </div>
-        
-        <div class="form-group">
-          <label for="correo">📧 Correo electrónico</label>
-          <input type="email" id="correo" name="correo" required />
+
+    <div class="form-container">
+      <form id="formularioContacto">
+        <!-- Datos Personales -->
+        <div class="form-grid">
+          <div class="full">
+            <h3>Datos Personales</h3>
+          </div>
+          
+          <div class="form-group">
+            <label for="nombre_completo">👤 Nombre completo</label>
+            <input type="text" id="nombre_completo" name="nombre_completo" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="telefono">📞 Teléfono</label>
+            <input type="tel" id="telefono" name="telefono" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="dpi">🆔 DPI</label>
+            <input type="text" id="dpi" name="dpi" required placeholder="Ej. 1234 56789 0101" pattern="^\d{4}\s\d{5}\s\d{4}$">
+          </div>
+          
+          <div class="form-group">
+            <label for="correo">📧 Correo electrónico</label>
+            <input type="email" id="correo" name="correo" required>
+          </div>
+
+          <!-- Servicio Solicitado -->
+          <div class="form-group full">
+            <label for="servicio_solicitado">🎯 Servicio solicitado</label>
+            <input type="text" id="servicio_solicitado" name="servicio_solicitado" readonly style="background: rgba(15, 23, 42, 0.8);">
+          </div>
         </div>
 
-        <!-- Servicio solicitado -->
-        <div class="form-group full">
-          <label for="servicio_solicitado">🎯 Servicio solicitado</label>
-          <input type="text" id="servicio_solicitado" name="servicio_solicitado" readonly style="background: rgba(15, 23, 42, 0.8);" />
+        <!-- Campos Específicos por Servicio -->
+        
+        <!-- REPARACIÓN -->
+        <div id="campos-reparacion" class="campos-especificos oculto">
+          <h3>🔧 Información para Reparación</h3>
+          
+          <div class="form-group">
+            <label>Tipo de equipo</label>
+            <div class="radio-group">
+              <div class="radio-item">
+                <input type="radio" id="tipo_laptop" name="tipo_equipo" value="Laptop" required>
+                <label for="tipo_laptop">Laptop</label>
+              </div>
+              <div class="radio-item">
+                <input type="radio" id="tipo_pc" name="tipo_equipo" value="PC de escritorio" required>
+                <label for="tipo_pc">PC de escritorio</label>
+              </div>
+              <div class="radio-item">
+                <input type="radio" id="tipo_otro" name="tipo_equipo" value="Otro" required>
+                <label for="tipo_otro">Otro</label>
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="marca_equipo">Marca del equipo</label>
+            <select id="marca_equipo" name="marca_equipo" required>
+              <option value="">Seleccione la marca</option>
+              <option value="Acer">Acer</option>
+              <option value="Apple">Apple</option>
+              <option value="Asus">Asus</option>
+              <option value="Dell">Dell</option>
+              <option value="HP">HP</option>
+              <option value="Lenovo">Lenovo</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="modelo_equipo">Modelo del equipo</label>
+            <input type="text" id="modelo_equipo" name="modelo_equipo" required placeholder="Ej: ThinkPad T480">
+            <div class="info-text">Encuentra el modelo en la etiqueta inferior o en Configuración</div>
+          </div>
+          
+          <div class="form-group">
+            <label>¿El equipo tiene garantía?</label>
+            <div class="radio-group">
+              <div class="radio-item">
+                <input type="radio" id="garantia_si" name="garantia" value="Sí" required>
+                <label for="garantia_si">Sí</label>
+              </div>
+              <div class="radio-item">
+                <input type="radio" id="garantia_no" name="garantia" value="No" required>
+                <label for="garantia_no">No</label>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      <!-- ======== Campos para REPARACIÓN ======== -->
-      <div id="campos-reparacion" class="campo-especifico oculto">
-        <h3>🔧 Información Específica para Reparación</h3>
-        
-        <div class="form-group">
-          <label for="tipo_equipo_reparacion">¿Qué tipo de equipo necesita reparar?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="laptop_reparacion" name="tipo_equipo_reparacion" value="Laptop" required>
-              <label for="laptop_reparacion">Laptop</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="pc_reparacion" name="tipo_equipo_reparacion" value="PC de escritorio" required>
-              <label for="pc_reparacion">PC de escritorio</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="otro_reparacion" name="tipo_equipo_reparacion" value="Otro" required>
-              <label for="otro_reparacion">Otro:</label>
-              <input type="text" id="otro_equipo_reparacion" name="otro_equipo_reparacion" style="display: none;">
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="marca_equipo_reparacion">🏷️ Marca del equipo</label>
-          <select id="marca_equipo_reparacion" name="marca_equipo_reparacion" required>
-            <option value="">-- Seleccione la marca --</option>
-            <option value="Acer">Acer</option>
-            <option value="Apple">Apple</option>
-            <option value="Asus">Asus</option>
-            <option value="Dell">Dell</option>
-            <option value="HP">HP</option>
-            <option value="Lenovo">Lenovo</option>
-            <option value="MSI">MSI</option>
-            <option value="Samsung">Samsung</option>
-            <option value="Toshiba">Toshiba</option>
-            <option value="Huawei">Huawei</option>
-            <option value="Xiaomi">Xiaomi</option>
-            <option value="Microsoft">Microsoft</option>
-            <option value="Otro">Otro</option>
-          </select>
-        </div>
-        
-        <div class="form-group">
-          <label for="modelo_reparacion">💻 Modelo del equipo</label>
-          <input type="text" id="modelo_reparacion" name="modelo_reparacion" required placeholder="Ej: ThinkPad T480, MacBook Pro 2020">
-          <div class="info-text">📝 Encuentra el modelo en la etiqueta inferior o en Configuración > Acerca de</div>
-        </div>
-        
-        <div class="form-group">
-          <label for="numero_serie_reparacion">🔢 Número de serie del equipo</label>
-          <input type="text" id="numero_serie_reparacion" name="numero_serie_reparacion" required>
-          <div class="info-text">📝 Encuentra el número de serie en la etiqueta inferior del equipo</div>
-        </div>
-        
-        <div class="form-group">
-          <label for="garantia_reparacion">🛡️ ¿El equipo tiene garantía activa?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="garantia_si" name="garantia_reparacion" value="Sí, tiene garantía vigente" required>
-              <label for="garantia_si">Sí, tiene garantía vigente</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="garantia_no" name="garantia_reparacion" value="No, la garantía expiró o no aplica" required>
-              <label for="garantia_no">No, la garantía expiró o no aplica</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="garantia_nose" name="garantia_reparacion" value="No estoy seguro" required>
-              <label for="garantia_nose">No estoy seguro</label>
-            </div>
-          </div>
-        </div>
-        
-        <div id="motivo_no_garantia" class="form-group full oculto">
-          <label for="razon_no_garantia">❓ ¿Por qué no utiliza la garantía?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="razon_expiro" name="razon_no_garantia" value="La garantía ya expiró">
-              <label for="razon_expiro">La garantía ya expiró</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="razon_no_cubierto" name="razon_no_garantia" value="El daño no está cubierto por la garantía">
-              <label for="razon_no_cubierto">El daño no está cubierto por la garantía</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="razon_prefiero" name="razon_no_garantia" value="Prefiero servicio técnico especializado">
-              <label for="razon_prefiero">Prefiero servicio técnico especializado</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="razon_otro" name="razon_no_garantia" value="Otro motivo">
-              <label for="razon_otro">Otro motivo:</label>
-              <input type="text" id="otro_razon_garantia" name="otro_razon_garantia" style="display: none;">
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="tipo_falla_reparacion">⚠️ ¿Qué problema presenta el equipo?</label>
-          <select id="tipo_falla_reparacion" name="tipo_falla_reparacion" required>
-            <option value="">-- Seleccione el tipo de falla --</option>
-            <option value="No enciende">No enciende</option>
-            <option value="Pantalla negra/azul">Pantalla negra/azul</option>
-            <option value="Muy lento o se traba">Muy lento o se traba</option>
-            <option value="Se sobrecalienta">Se sobrecalienta</option>
-            <option value="Problemas de sonido">Problemas de sonido</option>
-            <option value="Puerto USB/HDMI no funciona">Puerto USB/HDMI no funciona</option>
-            <option value="Batería no carga">Batería no carga</option>
-            <option value="No conecta a internet">No conecta a internet</option>
-            <option value="Teclado/touchpad no funciona">Teclado/touchpad no funciona</option>
-            <option value="Otro problema">Otro problema</option>
-          </select>
-        </div>
-        
-        <div class="form-group full">
-          <label for="descripcion_problema_reparacion">📝 Cuéntanos más sobre el problema</label>
+        <!-- MANTENIMIENTO -->
+        <div id="campos-mantenimiento" class="campos-especificos oculto">
+          <h3>🛠️ Información para Mantenimiento</h3>
           
-          <div class="sub-group">
-            <label>¿Cuándo empezó el problema?</label>
+          <div class="form-group">
+            <label>Tipo de equipo</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="problema_semana" name="cuando_problema" value="Hace menos de 1 semana" required>
-                <label for="problema_semana">Hace menos de 1 semana</label>
+                <input type="radio" id="mant_laptop" name="tipo_equipo_mantenimiento" value="Laptop" required>
+                <label for="mant_laptop">Laptop</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="problema_mes" name="cuando_problema" value="Hace 1-4 semanas" required>
-                <label for="problema_mes">Hace 1-4 semanas</label>
+                <input type="radio" id="mant_pc" name="tipo_equipo_mantenimiento" value="PC de escritorio" required>
+                <label for="mant_pc">PC de escritorio</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="problema_mas_mes" name="cuando_problema" value="Hace más de 1 mes" required>
-                <label for="problema_mas_mes">Hace más de 1 mes</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="problema_nose" name="cuando_problema" value="No estoy seguro" required>
-                <label for="problema_nose">No estoy seguro</label>
+                <input type="radio" id="mant_servidor" name="tipo_equipo_mantenimiento" value="Servidor" required>
+                <label for="mant_servidor">Servidor</label>
               </div>
             </div>
           </div>
           
-          <div class="sub-group">
-            <label>¿El problema es constante o aparece a veces?</label>
+          <div class="form-group">
+            <label>Cantidad de equipos</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="problema_constante" name="frecuencia_problema" value="Siempre está presente" required>
-                <label for="problema_constante">Siempre está presente</label>
+                <input type="radio" id="cant_1" name="cantidad_equipos" value="1 equipo" required>
+                <label for="cant_1">1 equipo</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="problema_intermitente" name="frecuencia_problema" value="Aparece y desaparece" required>
-                <label for="problema_intermitente">Aparece y desaparece</label>
+                <input type="radio" id="cant_2_5" name="cantidad_equipos" value="2-5 equipos" required>
+                <label for="cant_2_5">2-5 equipos</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="problema_ciertas" name="frecuencia_problema" value="Solo en ciertas situaciones" required>
-                <label for="problema_ciertas">Solo en ciertas situaciones</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="problema_frecuencia_nose" name="frecuencia_problema" value="No estoy seguro" required>
-                <label for="problema_frecuencia_nose">No estoy seguro</label>
-              </div>
-            </div>
-          </div>
-          
-          <div class="sub-group">
-            <label>¿Ya intentó solucionarlo?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="intento_si" name="intento_solucion" value="Sí, pero no funcionó" required>
-                <label for="intento_si">Sí, pero no funcionó</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="intento_no" name="intento_solucion" value="No, es la primera vez" required>
-                <label for="intento_no">No, es la primera vez</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="intento_reinicio" name="intento_solucion" value="Solo reinicié el equipo" required>
-                <label for="intento_reinicio">Solo reinicié el equipo</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="intento_otro" name="intento_solucion" value="Otro" required>
-                <label for="intento_otro">Otro:</label>
-                <input type="text" id="otro_intento" name="otro_intento" style="display: none;">
+                <input type="radio" id="cant_6_10" name="cantidad_equipos" value="6-10 equipos" required>
+                <label for="cant_6_10">6-10 equipos</label>
               </div>
             </div>
           </div>
         </div>
-        
-        <div class="form-group">
-          <label for="recuperacion_datos_reparacion">💾 ¿Necesita recuperar archivos importantes?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="recuperacion_si" name="recuperacion_datos_reparacion" value="Sí, tengo archivos importantes por recuperar" required>
-              <label for="recuperacion_si">Sí, tengo archivos importantes por recuperar 📞</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="recuperacion_no" name="recuperacion_datos_reparacion" value="No, solo necesito reparar el equipo" required>
-              <label for="recuperacion_no">No, solo necesito reparar el equipo</label>
-            </div>
-          </div>
-          <div class="info-text">📢 Si selecciona "Sí", nos contactaremos para coordinar la recuperación</div>
-        </div>
-        
-        <div class="form-group full">
-          <label>📋 Información adicional (opcional)</label>
-          
-          <div class="sub-group">
-            <label>¿Ha tenido reparaciones anteriores?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="reparaciones_si" name="reparaciones_anteriores" value="Sí, ha sido reparado antes">
-                <label for="reparaciones_si">Sí, ha sido reparado antes</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="reparaciones_no" name="reparaciones_anteriores" value="No, es la primera vez">
-                <label for="reparaciones_no">No, es la primera vez</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="reparaciones_nose" name="reparaciones_anteriores" value="No estoy seguro">
-                <label for="reparaciones_nose">No estoy seguro</label>
-              </div>
-            </div>
-          </div>
-          
-          <div class="sub-group">
-            <label>¿El equipo sufrió golpes o caídas?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="golpes_si_reciente" name="golpes_caidas" value="Sí, recientemente">
-                <label for="golpes_si_reciente">Sí, recientemente</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="golpes_si_tiempo" name="golpes_caidas" value="Sí, hace tiempo">
-                <label for="golpes_si_tiempo">Sí, hace tiempo</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="golpes_no" name="golpes_caidas" value="No, nunca">
-                <label for="golpes_no">No, nunca</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="golpes_nose" name="golpes_caidas" value="No estoy seguro">
-                <label for="golpes_nose">No estoy seguro</label>
-              </div>
-            </div>
-          </div>
-          
-          <div class="sub-group">
-            <label>¿Se derramó líquido sobre el equipo?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="liquido_si_reciente" name="derrame_liquido" value="Sí, recientemente">
-                <label for="liquido_si_reciente">Sí, recientemente</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="liquido_si_tiempo" name="derrame_liquido" value="Sí, hace tiempo">
-                <label for="liquido_si_tiempo">Sí, hace tiempo</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="liquido_no" name="derrame_liquido" value="No, nunca">
-                <label for="liquido_no">No, nunca</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="liquido_nose" name="derrame_liquido" value="No estoy seguro">
-                <label for="liquido_nose">No estoy seguro</label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- ======== Campos para MANTENIMIENTO ======== -->
-      <div id="campos-mantenimiento" class="campo-especifico oculto">
-        <h3>🛠️ Información Específica para Mantenimiento</h3>
-        
-        <div class="form-group">
-          <label for="tipo_equipo_mantenimiento">🔧 ¿Qué equipo necesita mantenimiento?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="laptop_mantenimiento" name="tipo_equipo_mantenimiento" value="Laptop" required>
-              <label for="laptop_mantenimiento">Laptop</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="pc_mantenimiento" name="tipo_equipo_mantenimiento" value="PC de escritorio" required>
-              <label for="pc_mantenimiento">PC de escritorio</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="servidor_mantenimiento" name="tipo_equipo_mantenimiento" value="Servidor" required>
-              <label for="servidor_mantenimiento">Servidor</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="gaming_mantenimiento" name="tipo_equipo_mantenimiento" value="Equipo de gaming" required>
-              <label for="gaming_mantenimiento">Equipo de gaming</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="otro_mantenimiento" name="tipo_equipo_mantenimiento" value="Otro" required>
-              <label for="otro_mantenimiento">Otro:</label>
-              <input type="text" id="otro_equipo_mantenimiento" name="otro_equipo_mantenimiento" style="display: none;">
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="cantidad_equipos_mantenimiento">📊 ¿Cuántos equipos necesita mantener?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="cantidad_1" name="cantidad_equipos_mantenimiento" value="1 equipo" required>
-              <label for="cantidad_1">1 equipo</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="cantidad_2_5" name="cantidad_equipos_mantenimiento" value="2-5 equipos" required>
-              <label for="cantidad_2_5">2-5 equipos</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="cantidad_6_10" name="cantidad_equipos_mantenimiento" value="6-10 equipos" required>
-              <label for="cantidad_6_10">6-10 equipos</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="cantidad_mas_10" name="cantidad_equipos_mantenimiento" value="Más de 10 equipos (empresa)" required>
-              <label for="cantidad_mas_10">Más de 10 equipos (empresa)</label>
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="frecuencia_mantenimiento">🔄 ¿Con qué frecuencia necesita el mantenimiento?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="frecuencia_unico" name="frecuencia_mantenimiento" value="Mantenimiento único (una sola vez)" required>
-              <label for="frecuencia_unico">Mantenimiento único (una sola vez)</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="frecuencia_mensual" name="frecuencia_mantenimiento" value="Mensual" required>
-              <label for="frecuencia_mensual">Mensual</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="frecuencia_trimestral" name="frecuencia_mantenimiento" value="Trimestral (cada 3 meses)" required>
-              <label for="frecuencia_trimestral">Trimestral (cada 3 meses)</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="frecuencia_semestral" name="frecuencia_mantenimiento" value="Semestral (cada 6 meses)" required>
-              <label for="frecuencia_semestral">Semestral (cada 6 meses)</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="frecuencia_anual" name="frecuencia_mantenimiento" value="Anual" required>
-              <label for="frecuencia_anual">Anual</label>
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="uso_equipo_mantenimiento">💼 ¿Para qué se usa principalmente el equipo?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="uso_personal" name="uso_equipo_mantenimiento" value="Uso personal/oficina" required>
-              <label for="uso_personal">Uso personal/oficina</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="uso_gaming" name="uso_equipo_mantenimiento" value="Gaming/entretenimiento" required>
-              <label for="uso_gaming">Gaming/entretenimiento</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="uso_diseno" name="uso_equipo_mantenimiento" value="Diseño gráfico/edición" required>
-              <label for="uso_diseno">Diseño gráfico/edición</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="uso_programacion" name="uso_equipo_mantenimiento" value="Programación/desarrollo" required>
-              <label for="uso_programacion">Programación/desarrollo</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="uso_servidor" name="uso_equipo_mantenimiento" value="Servidor/base de datos" required>
-              <label for="uso_servidor">Servidor/base de datos</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="uso_otro_mantenimiento" name="uso_equipo_mantenimiento" value="Otro" required>
-              <label for="uso_otro_mantenimiento">Otro:</label>
-              <input type="text" id="otro_uso_mantenimiento" name="otro_uso_mantenimiento" style="display: none;">
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group full">
-          <label>✅ Seleccione los servicios que necesita:</label>
-          <div class="checkbox-group">
-            <div class="checkbox-item">
-              <input type="checkbox" id="servicio_limpieza_fisica" name="servicios_mantenimiento" value="Limpieza interna física (polvo, ventiladores)">
-              <label for="servicio_limpieza_fisica">Limpieza interna física (polvo, ventiladores)</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="servicio_limpieza_software" name="servicios_mantenimiento" value="Limpieza de software (archivos temporales, cache)">
-              <label for="servicio_limpieza_software">Limpieza de software (archivos temporales, cache)</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="servicio_optimizacion" name="servicios_mantenimiento" value="Optimización del sistema operativo">
-              <label for="servicio_optimizacion">Optimización del sistema operativo</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="servicio_controladores" name="servicios_mantenimiento" value="Actualización de controladores">
-              <label for="servicio_controladores">Actualización de controladores</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="servicio_seguridad" name="servicios_mantenimiento" value="Revisión de seguridad y antivirus">
-              <label for="servicio_seguridad">Revisión de seguridad y antivirus</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="servicio_hardware" name="servicios_mantenimiento" value="Verificación de hardware (discos, memoria, temperatura)">
-              <label for="servicio_hardware">Verificación de hardware (discos, memoria, temperatura)</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="servicio_respaldo" name="servicios_mantenimiento" value="Respaldo de datos importante">
-              <label for="servicio_respaldo">Respaldo de datos importante</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="servicio_otro_mantenimiento" name="servicios_mantenimiento" value="Otro servicio">
-              <label for="servicio_otro_mantenimiento">Otro servicio:</label>
-              <input type="text" id="otro_servicio_mantenimiento" name="otro_servicio_mantenimiento" style="display: none;">
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group full">
-          <label>📈 ¿Cómo se encuentra el equipo actualmente?</label>
+        <!-- FORMATEO -->
+        <div id="campos-formateo" class="campos-especificos oculto">
+          <h3>💻 Información para Formateo</h3>
           
-          <div class="sub-group">
-            <label>¿Nota que el equipo está más lento de lo normal?</label>
+          <div class="form-group">
+            <label>Sistema operativo requerido</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="lento_mucho" name="velocidad_equipo" value="Sí, mucho más lento" required>
-                <label for="lento_mucho">Sí, mucho más lento</label>
+                <input type="radio" id="win10" name="sistema_operativo" value="Windows 10" required>
+                <label for="win10">Windows 10</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="lento_poco" name="velocidad_equipo" value="Un poco más lento" required>
-                <label for="lento_poco">Un poco más lento</label>
+                <input type="radio" id="win11" name="sistema_operativo" value="Windows 11" required>
+                <label for="win11">Windows 11</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="lento_normal" name="velocidad_equipo" value="No, funciona normal" required>
-                <label for="lento_normal">No, funciona normal</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="lento_nose" name="velocidad_equipo" value="No estoy seguro" required>
-                <label for="lento_nose">No estoy seguro</label>
+                <input type="radio" id="linux" name="sistema_operativo" value="Linux" required>
+                <label for="linux">Linux</label>
               </div>
             </div>
           </div>
           
-          <div class="sub-group">
-            <label>¿El equipo se sobrecalienta o hace ruido?</label>
+          <div class="form-group">
+            <label>¿Necesita respaldo de archivos?</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="problema_calor" name="problemas_equipo" value="Sí, se calienta mucho" required>
-                <label for="problema_calor">Sí, se calienta mucho</label>
+                <input type="radio" id="respaldo_si" name="respaldo" value="Sí" required>
+                <label for="respaldo_si">Sí</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="problema_ruido" name="problemas_equipo" value="Hace ruido extraño" required>
-                <label for="problema_ruido">Hace ruido extraño</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="problema_ambos" name="problemas_equipo" value="Ambos problemas" required>
-                <label for="problema_ambos">Ambos problemas</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="problema_normal" name="problemas_equipo" value="No, está normal" required>
-                <label for="problema_normal">No, está normal</label>
-              </div>
-            </div>
-          </div>
-          
-          <div class="sub-group">
-            <label>¿Cuándo fue el último mantenimiento?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="mantenimiento_3meses" name="ultimo_mantenimiento" value="Hace menos de 3 meses" required>
-                <label for="mantenimiento_3meses">Hace menos de 3 meses</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="mantenimiento_6meses" name="ultimo_mantenimiento" value="Hace 3-6 meses" required>
-                <label for="mantenimiento_6meses">Hace 3-6 meses</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="mantenimiento_1ano" name="ultimo_mantenimiento" value="Hace más de 1 año" required>
-                <label for="mantenimiento_1ano">Hace más de 1 año</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="mantenimiento_nunca" name="ultimo_mantenimiento" value="Nunca ha tenido mantenimiento" required>
-                <label for="mantenimiento_nunca">Nunca ha tenido mantenimiento</label>
+                <input type="radio" id="respaldo_no" name="respaldo" value="No" required>
+                <label for="respaldo_no">No</label>
               </div>
             </div>
           </div>
         </div>
-        
-        <div class="form-group full">
-          <label>🔐 Información de acceso para el mantenimiento:</label>
-          
-          <div class="sub-group">
-            <label>¿Tiene contraseña de administrador?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="contrasena_si" name="contrasena_administrador" value="Sí, la proporcionaré" required>
-                <label for="contrasena_si">Sí, la proporcionaré</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="contrasena_no" name="contrasena_administrador" value="No, no tiene contraseña" required>
-                <label for="contrasena_no">No, no tiene contraseña</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="contrasena_configurar" name="contrasena_administrador" value="Prefiero configurarla durante el servicio" required>
-                <label for="contrasena_configurar">Prefiero configurarla durante el servicio</label>
-              </div>
-            </div>
-          </div>
-          
-          <div class="sub-group">
-            <label>¿Necesita respaldo de archivos antes del mantenimiento?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="respaldo_documentos" name="respaldo_archivos" value="Sí, respaldar documentos importantes" required>
-                <label for="respaldo_documentos">Sí, respaldar documentos importantes</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="respaldo_todo" name="respaldo_archivos" value="Sí, respaldar todo el sistema" required>
-                <label for="respaldo_todo">Sí, respaldar todo el sistema</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="respaldo_no" name="respaldo_archivos" value="No, no necesita respaldo" required>
-                <label for="respaldo_no">No, no necesita respaldo</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="respaldo_nose" name="respaldo_archivos" value="No estoy seguro" required>
-                <label for="respaldo_nose">No estoy seguro</label>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group full">
-          <label>🕒 ¿Cuándo prefiere el servicio de mantenimiento?</label>
-          
-          <div class="sub-group">
-            <label>Días preferidos:</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="dias_semana" name="dias_preferidos" value="Lunes a viernes" required>
-                <label for="dias_semana">Lunes a viernes</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="dias_sabado" name="dias_preferidos" value="Sábados" required>
-                <label for="dias_sabado">Sábados</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="dias_domingo" name="dias_preferidos" value="Domingos" required>
-                <label for="dias_domingo">Domingos</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="dias_cualquiera" name="dias_preferidos" value="Cualquier día" required>
-                <label for="dias_cualquiera">Cualquier día</label>
-              </div>
-            </div>
-          </div>
-          
-          <div class="sub-group">
-            <label>Horario preferido:</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="horario_manana" name="horario_preferido" value="Mañana (8:00 AM - 12:00 PM)" required>
-                <label for="horario_manana">Mañana (8:00 AM - 12:00 PM)</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="horario_tarde" name="horario_preferido" value="Tarde (1:00 PM - 6:00 PM)" required>
-                <label for="horario_tarde">Tarde (1:00 PM - 6:00 PM)</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="horario_noche" name="horario_preferido" value="Noche (6:00 PM - 9:00 PM)" required>
-                <label for="horario_noche">Noche (6:00 PM - 9:00 PM)</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="horario_cualquiera" name="horario_preferido" value="Cualquier horario" required>
-                <label for="horario_cualquiera">Cualquier horario</label>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="note-box full">
-          <strong>💰 Información sobre el precio:</strong>
-          <p>El precio mostrado es una estimación base. El costo final puede variar según:</p>
-          <ul>
-            <li>Cantidad de equipos</li>
-            <li>Servicios adicionales seleccionados</li>
-            <li>Estado actual del equipo</li>
-            <li>Complejidad del mantenimiento requerido</li>
-          </ul>
-          <p>📞 <em>Le contactaremos para confirmar el precio final antes de proceder</em></p>
-        </div>
-        
-        <div class="form-group full">
-          <label>📋 Información adicional (opcional)</label>
-          
-          <div class="sub-group">
-            <label>¿El equipo tiene software especializado?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="software_diseno" name="software_especializado" value="Sí, programas de diseño/edición">
-                <label for="software_diseno">Sí, programas de diseño/edición</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="software_empresarial" name="software_especializado" value="Sí, software empresarial">
-                <label for="software_empresarial">Sí, software empresarial</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="software_basico" name="software_especializado" value="No, solo programas básicos">
-                <label for="software_basico">No, solo programas básicos</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="software_nose" name="software_especializado" value="No estoy seguro">
-                <label for="software_nose">No estoy seguro</label>
-              </div>
-            </div>
-          </div>
-          
-          <div class="sub-group">
-            <label>¿Necesita instalación de software adicional?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="instalacion_si" name="instalacion_software" value="Sí, necesito programas específicos">
-                <label for="instalacion_si">Sí, necesito programas específicos</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="instalacion_no" name="instalacion_software" value="No, solo mantenimiento">
-                <label for="instalacion_no">No, solo mantenimiento</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="instalacion_recomendaciones" name="instalacion_software" value="Me gustaría recomendaciones">
-                <label for="instalacion_recomendaciones">Me gustaría recomendaciones</label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- ======== Campos para FORMATEO ======== -->
-      <div id="campos-formateo" class="campo-especifico oculto">
-        <h3>💻 Información Específica para Formateo</h3>
-        
-        <div class="form-group">
-          <label for="tipo_equipo_formateo">🔧 ¿Qué equipo necesita formatear?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="laptop_formateo" name="tipo_equipo_formateo" value="Laptop" required>
-              <label for="laptop_formateo">Laptop</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="pc_formateo" name="tipo_equipo_formateo" value="PC de escritorio" required>
-              <label for="pc_formateo">PC de escritorio</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="gaming_formateo" name="tipo_equipo_formateo" value="Equipo de gaming" required>
-              <label for="gaming_formateo">Equipo de gaming</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="servidor_formateo" name="tipo_equipo_formateo" value="Servidor" required>
-              <label for="servidor_formateo">Servidor</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="otro_formateo" name="tipo_equipo_formateo" value="Otro" required>
-              <label for="otro_formateo">Otro:</label>
-              <input type="text" id="otro_equipo_formateo" name="otro_equipo_formateo" style="display: none;">
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="estado_equipo_formateo">📊 ¿En qué estado se encuentra el equipo?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="estado_lento" name="estado_equipo_formateo" value="Funciona pero muy lento" required>
-              <label for="estado_lento">Funciona pero muy lento</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="estado_no_enciende" name="estado_equipo_formateo" value="No enciende/inicia Windows" required>
-              <label for="estado_no_enciende">No enciende/inicia Windows</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="estado_virus" name="estado_equipo_formateo" value="Tiene virus/malware" required>
-              <label for="estado_virus">Tiene virus/malware</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="estado_pantalla_azul" name="estado_equipo_formateo" value="Pantalla azul/errores del sistema" required>
-              <label for="estado_pantalla_azul">Pantalla azul/errores del sistema</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="estado_limpiar" name="estado_equipo_formateo" value="Quiero limpiar completamente el equipo" required>
-              <label for="estado_limpiar">Quiero limpiar completamente el equipo</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="estado_otro_formateo" name="estado_equipo_formateo" value="Otro" required>
-              <label for="estado_otro_formateo">Otro:</label>
-              <input type="text" id="otro_estado_formateo" name="otro_estado_formateo" style="display: none;">
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="sistema_operativo_formateo">🖥️ ¿Qué sistema operativo necesita?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="sistema_w10" name="sistema_operativo_formateo" value="Windows 10" required>
-              <label for="sistema_w10">Windows 10</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="sistema_w11" name="sistema_operativo_formateo" value="Windows 11" required>
-              <label for="sistema_w11">Windows 11</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="sistema_reciente" name="sistema_operativo_formateo" value="Windows 10/11 (versión más reciente)" required>
-              <label for="sistema_reciente">Windows 10/11 (versión más reciente)</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="sistema_linux" name="sistema_operativo_formateo" value="Linux" required>
-              <label for="sistema_linux">Linux (especifique distribución):</label>
-              <input type="text" id="distro_linux" name="distro_linux" style="display: none;">
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="sistema_actual" name="sistema_operativo_formateo" value="Mantener el actual (solo formatear)" required>
-              <label for="sistema_actual">Mantener el actual (solo formatear)</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="sistema_asesoria" name="sistema_operativo_formateo" value="No estoy seguro - necesito asesoría" required>
-              <label for="sistema_asesoria">No estoy seguro - necesito asesoría</label>
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group full">
-          <label>💾 <strong>RESPALDO DE ARCHIVOS - OPCIÓN CRÍTICA</strong></label>
-          <div class="note-box">
-            <strong>⚠️ ¡ATENCIÓN!</strong> El formateo borrará TODOS los archivos del equipo. Asegúrese de respaldar toda la información importante antes de continuar.
-          </div>
+        <!-- CÁMARAS -->
+        <div id="campos-camaras" class="campos-especificos oculto">
+          <h3>📹 Información para Cámaras de Seguridad</h3>
           
-          <div class="sub-group">
-            <label>¿Qué archivos necesita respaldar?</label>
+          <div class="form-group">
+            <label>Tipo de propiedad</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="respaldo_documentos_formateo" name="archivos_respaldar" value="Solo documentos importantes (Word, Excel, PDF)" required>
-                <label for="respaldo_documentos_formateo">Solo documentos importantes (Word, Excel, PDF)</label>
+                <input type="radio" id="casa" name="tipo_propiedad" value="Casa" required>
+                <label for="casa">Casa</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="respaldo_fotos" name="archivos_respaldar" value="Fotos y videos personales" required>
-                <label for="respaldo_fotos">Fotos y videos personales</label>
+                <input type="radio" id="apartamento" name="tipo_propiedad" value="Apartamento" required>
+                <label for="apartamento">Apartamento</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="respaldo_perfil" name="archivos_respaldar" value="Todo mi perfil de usuario" required>
-                <label for="respaldo_perfil">Todo mi perfil de usuario</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="respaldo_nada" name="archivos_respaldar" value="No necesito respaldar nada" required>
-                <label for="respaldo_nada">No necesito respaldar nada</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="respaldo_asesoria" name="archivos_respaldar" value="No estoy seguro - necesito asesoría" required>
-                <label for="respaldo_asesoria">No estoy seguro - necesito asesoría</label>
+                <input type="radio" id="local" name="tipo_propiedad" value="Local comercial" required>
+                <label for="local">Local comercial</label>
               </div>
             </div>
           </div>
           
-          <div class="sub-group">
-            <label>¿Dónde guardaremos el respaldo?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="almacenamiento_externo" name="donde_respaldo" value="En mi disco duro externo (traerlo al servicio)" required>
-                <label for="almacenamiento_externo">En mi disco duro externo (traerlo al servicio)</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="almacenamiento_usb" name="donde_respaldo" value="En una memoria USB (traerla al servicio)" required>
-                <label for="almacenamiento_usb">En una memoria USB (traerla al servicio)</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="almacenamiento_nube" name="donde_respaldo" value="En la nube (Google Drive, Dropbox, etc.)" required>
-                <label for="almacenamiento_nube">En la nube (Google Drive, Dropbox, etc.)</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="almacenamiento_proporcionar" name="donde_respaldo" value="Necesito que me proporcionen almacenamiento" required>
-                <label for="almacenamiento_proporcionar">Necesito que me proporcionen almacenamiento</label>
-              </div>
-            </div>
+          <div class="form-group">
+            <label for="cantidad_camaras">Número de cámaras</label>
+            <input type="number" id="cantidad_camaras" name="cantidad_camaras" min="1" required>
           </div>
         </div>
-        
-        <div id="archivos_especificos" class="form-group full oculto">
-          <label>📁 Si seleccionó respaldar archivos, especifique:</label>
-          <div class="checkbox-group">
-            <div class="checkbox-item">
-              <input type="checkbox" id="archivo_office" name="archivos_especificos" value="Documentos de Office (Word, Excel, PowerPoint)">
-              <label for="archivo_office">Documentos de Office (Word, Excel, PowerPoint)</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="archivo_pdf" name="archivos_especificos" value="Archivos PDF y textos">
-              <label for="archivo_pdf">Archivos PDF y textos</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="archivo_fotos" name="archivos_especificos" value="Fotos e imágenes">
-              <label for="archivo_fotos">Fotos e imágenes</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="archivo_videos" name="archivos_especificos" value="Videos y música">
-              <label for="archivo_videos">Videos y música</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="archivo_marcadores" name="archivos_especificos" value="Marcadores del navegador">
-              <label for="archivo_marcadores">Marcadores del navegador</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="archivo_contrasenas" name="archivos_especificos" value="Contraseñas guardadas">
-              <label for="archivo_contrasenas">Contraseñas guardadas</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="archivo_diseno" name="archivos_especificos" value="Programas de diseño/edición">
-              <label for="archivo_diseno">Programas de diseño/edición</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="archivo_juegos" name="archivos_especificos" value="Juegos guardados">
-              <label for="archivo_juegos">Juegos guardados</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="archivo_otros" name="archivos_especificos" value="Otros">
-              <label for="archivo_otros">Otros:</label>
-              <input type="text" id="otros_archivos" name="otros_archivos" style="display: none;">
-            </div>
-          </div>
-          <div class="info-text">📝 <em>Lista de carpetas importantes: Escritorio, Documentos, Descargas, Imágenes</em></div>
-        </div>
-        
-        <div class="form-group full">
-          <label>📦 ¿Qué programas necesita reinstalar?</label>
-          <div class="checkbox-group">
-            <div class="checkbox-item">
-              <input type="checkbox" id="programa_office" name="programas_reinstalar" value="Microsoft Office (Word, Excel, PowerPoint)">
-              <label for="programa_office">Microsoft Office (Word, Excel, PowerPoint)</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="programa_navegadores" name="programas_reinstalar" value="Navegadores (Chrome, Firefox, Edge)">
-              <label for="programa_navegadores">Navegadores (Chrome, Firefox, Edge)</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="programa_reader" name="programas_reinstalar" value="Adobe Reader">
-              <label for="programa_reader">Adobe Reader</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="programa_multimedia" name="programas_reinstalar" value="Reproductores multimedia (VLC, etc.)">
-              <label for="programa_multimedia">Reproductores multimedia (VLC, etc.)</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="programa_antivirus" name="programas_reinstalar" value="Antivirus">
-              <label for="programa_antivirus">Antivirus (especifique):</label>
-              <input type="text" id="antivirus_especifico" name="antivirus_especifico" style="display: none;">
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="programa_diseno" name="programas_reinstalar" value="Programas de diseño (Photoshop, Illustrator)">
-              <label for="programa_diseno">Programas de diseño (Photoshop, Illustrator)</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="programa_desarrollo" name="programas_reinstalar" value="Suite de desarrollo (Visual Studio, etc.)">
-              <label for="programa_desarrollo">Suite de desarrollo (Visual Studio, etc.)</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="programa_juegos" name="programas_reinstalar" value="Juegos/Plataformas (Steam, Epic Games)">
-              <label for="programa_juegos">Juegos/Plataformas (Steam, Epic Games)</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="programa_empresarial" name="programas_reinstalar" value="Programas empresariales específicos">
-              <label for="programa_empresarial">Programas empresariales específicos</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="programa_otros" name="programas_reinstalar" value="Otros programas">
-              <label for="programa_otros">Otros programas:</label>
-              <input type="text" id="otros_programas" name="otros_programas" style="display: none;">
-            </div>
-          </div>
-          <div class="info-text">📝 <em>Si tiene licencias, tráigalas o tenga a mano las claves</em></div>
-        </div>
-        
-        <div class="form-group full">
-          <label>⚙️ Configuraciones adicionales requeridas:</label>
-          <div class="checkbox-group">
-            <div class="checkbox-item">
-              <input type="checkbox" id="config_internet" name="configuraciones_especiales" value="Configurar conexión a internet/red">
-              <label for="config_internet">Configurar conexión a internet/red</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="config_controladores" name="configuraciones_especiales" value="Instalar controladores específicos">
-              <label for="config_controladores">Instalar controladores específicos</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="config_impresora" name="configuraciones_especiales" value="Configurar impresora/escaner">
-              <label for="config_impresora">Configurar impresora/escaner</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="config_correo" name="configuraciones_especiales" value="Configurar correo electrónico">
-              <label for="config_correo">Configurar correo electrónico</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="config_gaming" name="configuraciones_especiales" value="Optimizar para gaming">
-              <label for="config_gaming">Optimizar para gaming</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="config_respaldo" name="configuraciones_especiales" value="Configurar respaldo automático">
-              <label for="config_respaldo">Configurar respaldo automático</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="config_particion" name="configuraciones_especiales" value="Particionar el disco duro">
-              <label for="config_particion">Particionar el disco duro</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="config_otro" name="configuraciones_especiales" value="Otro">
-              <label for="config_otro">Otro:</label>
-              <input type="text" id="otra_configuracion" name="otra_configuracion" style="display: none;">
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group full">
-          <label>🔐 Información necesaria para el formateo:</label>
-          
-          <div class="sub-group">
-            <label>¿Tiene cuenta de Microsoft/Windows?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="cuenta_si" name="cuenta_microsoft" value="Sí, la usaré para activar" required>
-                <label for="cuenta_si">Sí, la usaré para activar</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="cuenta_no" name="cuenta_microsoft" value="No, necesito crear una" required>
-                <label for="cuenta_no">No, necesito crear una</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="cuenta_sin" name="cuenta_microsoft" value="Prefiero versión sin cuenta Microsoft" required>
-                <label for="cuenta_sin">Prefiero versión sin cuenta Microsoft</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="cuenta_nose" name="cuenta_microsoft" value="No estoy seguro" required>
-                <label for="cuenta_nose">No estoy seguro</label>
-              </div>
-            </div>
-          </div>
-          
-          <div class="sub-group">
-            <label>¿Tiene licencias de software original?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="licencias_todas" name="licencias_software" value="Sí, tengo todas las licencias" required>
-                <label for="licencias_todas">Sí, tengo todas las licencias</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="licencias_algunas" name="licencias_software" value="Solo algunas licencias" required>
-                <label for="licencias_algunas">Solo algunas licencias</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="licencias_no" name="licencias_software" value="No tengo licencias" required>
-                <label for="licencias_no">No tengo licencias</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="licencias_asesoria" name="licencias_software" value="Necesito asesoría sobre licencias" required>
-                <label for="licencias_asesoria">Necesito asesoría sobre licencias</label>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="note-box full">
-          <strong>💰 Información sobre el precio:</strong>
-          <p>El precio mostrado es base por el formateo básico. Puede variar según:</p>
-          <ul>
-            <li>Cantidad de datos a respaldar</li>
-            <li>Programas adicionales a instalar</li>
-            <li>Configuraciones especiales requeridas</li>
-            <li>Complejidad del sistema operativo</li>
-          </ul>
-          <p>⏱️ <em>Tiempo estimado: 2-4 horas (depende de la cantidad de datos)</em></p>
-          <p>📞 <em>Confirmaremos precio y tiempo final antes de proceder</em></p>
-        </div>
-        
-        <div class="form-group full">
-          <label>✅ <strong>CONFIRMACIÓN IMPORTANTE</strong></label>
-          <div class="note-box">
-            <strong>⚠️ Al confirmar, acepta que:</strong>
-            <ul>
-              <li>Entiende que TODOS los datos se borrarán</li>
-              <li>Se hará respaldo solo de lo especificado</li>
-              <li>Es responsable de proporcionar licencias</li>
-              <li>El tiempo puede variar según complejidad</li>
-            </ul>
-          </div>
-          
-          <div class="sub-group">
-            <label>¿Confirma que entendió esta información?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="confirmacion_si" name="confirmacion_formateo" value="Sí, entiendo y procedo" required>
-                <label for="confirmacion_si">Sí, entiendo y procedo</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="confirmacion_info" name="confirmacion_formateo" value="Necesito más información" required>
-                <label for="confirmacion_info">Necesito más información</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="confirmacion_contacto" name="confirmacion_formateo" value="Prefiero que me contacten primero" required>
-                <label for="confirmacion_contacto">Prefiero que me contacten primero</label>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
 
-      <!-- ======== Campos para CÁMARAS ======== -->
-      <div id="campos-camaras" class="campo-especifico oculto">
-        <h3>📹 Información Específica para Cámaras de Seguridad</h3>
-        
-        <div class="form-group">
-          <label for="tipo_servicio_camaras">🔧 ¿Qué servicio necesita?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="servicio_instalacion" name="tipo_servicio_camaras" value="Instalación nueva de cámaras" required>
-              <label for="servicio_instalacion">Instalación nueva de cámaras</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="servicio_reparacion" name="tipo_servicio_camaras" value="Reparación de sistema existente" required>
-              <label for="servicio_reparacion">Reparación de sistema existente</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="servicio_ampliacion" name="tipo_servicio_camaras" value="Ampliación (agregar más cámaras)" required>
-              <label for="servicio_ampliacion">Ampliación (agregar más cámaras)</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="servicio_mantenimiento_camaras" name="tipo_servicio_camaras" value="Mantenimiento de sistema actual" required>
-              <label for="servicio_mantenimiento_camaras">Mantenimiento de sistema actual</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="servicio_diagnostico" name="tipo_servicio_camaras" value="Solo diagnóstico/cotización" required>
-              <label for="servicio_diagnostico">Solo diagnóstico/cotización</label>
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="tipo_propiedad_camaras">🏠 ¿Dónde se instalará/reparará?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="propiedad_casa" name="tipo_propiedad_camaras" value="Casa individual" required>
-              <label for="propiedad_casa">Casa individual</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="propiedad_apartamento" name="tipo_propiedad_camaras" value="Apartamento" required>
-              <label for="propiedad_apartamento">Apartamento</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="propiedad_local" name="tipo_propiedad_camaras" value="Local pequeño" required>
-              <label for="propiedad_local">Local pequeño</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="propiedad_otro_camaras" name="tipo_propiedad_camaras" value="Otro" required>
-              <label for="propiedad_otro_camaras">Otro:</label>
-              <input type="text" id="otro_propiedad_camaras" name="otro_propiedad_camaras" style="display: none;">
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="cantidad_camaras">📹 Cantidad de cámaras necesarias:</label>
+        <!-- SOPORTE TÉCNICO -->
+        <div id="campos-soporte" class="campos-especificos oculto">
+          <h3>🛠️ Información para Soporte Técnico</h3>
           
-          <div id="cantidad_instalacion" class="sub-group">
-            <label>Para instalación nueva:</label>
+          <div class="form-group">
+            <label>Tipo de problema</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="camaras_1_2" name="cantidad_camaras_nueva" value="1-2 cámaras (área específica)">
-                <label for="camaras_1_2">1-2 cámaras (área específica)</label>
+                <input type="radio" id="problema_software" name="tipo_problema" value="Software" required>
+                <label for="problema_software">Software</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="camaras_3_4" name="cantidad_camaras_nueva" value="3-4 cámaras (cobertura básica)">
-                <label for="camaras_3_4">3-4 cámaras (cobertura básica)</label>
+                <input type="radio" id="problema_hardware" name="tipo_problema" value="Hardware" required>
+                <label for="problema_hardware">Hardware</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="camaras_5_8" name="cantidad_camaras_nueva" value="5-8 cámaras (cobertura completa)">
-                <label for="camaras_5_8">5-8 cámaras (cobertura completa)</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="camaras_mas_8" name="cantidad_camaras_nueva" value="Más de 8 cámaras">
-                <label for="camaras_mas_8">Más de 8 cámaras</label>
+                <input type="radio" id="problema_red" name="tipo_problema" value="Red/Internet" required>
+                <label for="problema_red">Red/Internet</label>
               </div>
             </div>
           </div>
           
-          <div id="cantidad_reparacion" class="sub-group oculto">
-            <label>Para reparación/ampliación:</label>
-            <div>
-              <input type="number" id="camaras_reparar" name="camaras_reparar" placeholder="Cámaras a reparar" min="0">
-              <input type="number" id="camaras_agregar" name="camaras_agregar" placeholder="Cámaras a agregar" min="0">
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group full">
-          <label>🎯 Áreas que quiere vigilar:</label>
-          <div class="checkbox-group">
-            <div class="checkbox-item">
-              <input type="checkbox" id="area_entrada" name="areas_vigilar" value="Entrada principal">
-              <label for="area_entrada">Entrada principal</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="area_puerta_trasera" name="areas_vigilar" value="Puerta trasera">
-              <label for="area_puerta_trasera">Puerta trasera</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="area_garaje" name="areas_vigilar" value="Garaje/estacionamiento">
-              <label for="area_garaje">Garaje/estacionamiento</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="area_jardin" name="areas_vigilar" value="Jardín/patio">
-              <label for="area_jardin">Jardín/patio</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="area_pasillo" name="areas_vigilar" value="Pasillo interior">
-              <label for="area_pasillo">Pasillo interior</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="area_otra" name="areas_vigilar" value="Otra área">
-              <label for="area_otra">Otra área:</label>
-              <input type="text" id="otra_area" name="otra_area" style="display: none;">
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="tipo_sistema_camaras">📡 Tipo de sistema preferido:</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="sistema_cable" name="tipo_sistema_camaras" value="Cámaras con cables (más estable)" required>
-              <label for="sistema_cable">Cámaras con cables (más estable)</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="sistema_inalambrico" name="tipo_sistema_camaras" value="Cámaras inalámbricas (fácil instalación)" required>
-              <label for="sistema_inalambrico">Cámaras inalámbricas (fácil instalación)</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="sistema_actual_camaras" name="tipo_sistema_camaras" value="Mantener sistema actual" required>
-              <label for="sistema_actual_camaras">Mantener sistema actual</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="sistema_asesoria_camaras" name="tipo_sistema_camaras" value="No estoy seguro - necesito asesoría" required>
-              <label for="sistema_asesoria_camaras">No estoy seguro - necesito asesoría</label>
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group full">
-          <label>🌟 Características que necesita:</label>
-          <div class="checkbox-group">
-            <div class="checkbox-item">
-              <input type="checkbox" id="caracteristica_noche" name="caracteristicas_camaras" value="Visión nocturna">
-              <label for="caracteristica_noche">Visión nocturna</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="caracteristica_movimiento" name="caracteristicas_camaras" value="Detección de movimiento">
-              <label for="caracteristica_movimiento">Detección de movimiento</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="caracteristica_notificaciones" name="caracteristicas_camaras" value="Notificaciones al celular">
-              <label for="caracteristica_notificaciones">Notificaciones al celular</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="caracteristica_audio" name="caracteristicas_camaras" value="Audio bidireccional">
-              <label for="caracteristica_audio">Audio bidireccional</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="caracteristica_intemperie" name="caracteristicas_camaras" value="Resistencia a la intemperie">
-              <label for="caracteristica_intemperie">Resistencia a la intemperie</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="caracteristica_grabacion" name="caracteristicas_camaras" value="Grabación continua">
-              <label for="caracteristica_grabacion">Grabación continua</label>
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="acceso_visualizacion">📱 ¿Cómo quiere ver las cámaras?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="visualizacion_celular" name="acceso_visualizacion" value="En mi celular (app)" required>
-              <label for="visualizacion_celular">En mi celular (app)</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="visualizacion_monitor" name="acceso_visualizacion" value="En monitor/TV en casa" required>
-              <label for="visualizacion_monitor">En monitor/TV en casa</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="visualizacion_computadora" name="acceso_visualizacion" value="En mi computadora" required>
-              <label for="visualizacion_computadora">En mi computadora</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="visualizacion_multiples" name="acceso_visualizacion" value="Múltiples dispositivos" required>
-              <label for="visualizacion_multiples">Múltiples dispositivos</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="visualizacion_local" name="acceso_visualizacion" value="Solo grabación local" required>
-              <label for="visualizacion_local">Solo grabación local</label>
-            </div>
-          </div>
-        </div>
-        
-        <div id="estado_reparacion" class="form-group full oculto">
-          <label>🔧 Si es reparación, describa el problema:</label>
-          
-          <div class="sub-group">
-            <label>¿Qué está fallando?</label>
+          <div class="form-group">
+            <label>Urgencia del servicio</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="falla_imagenes" name="que_falla" value="No se ven las imágenes">
-                <label for="falla_imagenes">No se ven las imágenes</label>
+                <input type="radio" id="urgencia_alta" name="urgencia" value="Alta" required>
+                <label for="urgencia_alta">Alta (hoy mismo)</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="falla_app" name="que_falla" value="No funciona la app/celular">
-                <label for="falla_app">No funciona la app/celular</label>
+                <input type="radio" id="urgencia_media" name="urgencia" value="Media" required>
+                <label for="urgencia_media">Media (esta semana)</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="falla_grabacion" name="que_falla" value="Cámaras no graban">
-                <label for="falla_grabacion">Cámaras no graban</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="falla_conexion" name="que_falla" value="Problemas de conexión">
-                <label for="falla_conexion">Problemas de conexión</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="falla_otro_camaras" name="que_falla" value="Otro">
-                <label for="falla_otro_camaras">Otro:</label>
-                <input type="text" id="otra_falla_camaras" name="otra_falla_camaras" style="display: none;">
-              </div>
-            </div>
-          </div>
-          
-          <div class="sub-group">
-            <label>¿Cuándo empezó el problema?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="problema_reciente" name="cuando_problema_camaras" value="Recientemente">
-                <label for="problema_reciente">Recientemente</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="problema_semanas" name="cuando_problema_camaras" value="Hace semanas/meses">
-                <label for="problema_semanas">Hace semanas/meses</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="problema_desde_instalacion" name="cuando_problema_camaras" value="Desde la instalación">
-                <label for="problema_desde_instalacion">Desde la instalación</label>
+                <input type="radio" id="urgencia_baja" name="urgencia" value="Baja" required>
+                <label for="urgencia_baja">Baja (cuando sea posible)</label>
               </div>
             </div>
           </div>
         </div>
-        
-        <div class="form-group full">
-          <label>📅 Información para coordinar:</label>
-          
-          <div class="sub-group">
-            <label>¿El lugar tiene internet WiFi?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="wifi_si" name="internet_wifi" value="Sí, funciona bien" required>
-                <label for="wifi_si">Sí, funciona bien</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="wifi_debil" name="internet_wifi" value="Sí, pero señal débil" required>
-                <label for="wifi_debil">Sí, pero señal débil</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="wifi_no" name="internet_wifi" value="No tiene internet" required>
-                <label for="wifi_no">No tiene internet</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="wifi_nose" name="internet_wifi" value="No estoy seguro" required>
-                <label for="wifi_nose">No estoy seguro</label>
-              </div>
-            </div>
-          </div>
-          
-          <div class="sub-group">
-            <label>Preferencia de horario:</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="horario_manana_camaras" name="horario_preferido_camaras" value="Mañanas" required>
-                <label for="horario_manana_camaras">Mañanas</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="horario_tarde_camaras" name="horario_preferido_camaras" value="Tardes" required>
-                <label for="horario_tarde_camaras">Tardes</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="horario_sabado_camaras" name="horario_preferido_camaras" value="Sábados" required>
-                <label for="horario_sabado_camaras">Sábados</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="horario_cualquiera_camaras" name="horario_preferido_camaras" value="Cualquier horario" required>
-                <label for="horario_cualquiera_camaras">Cualquier horario</label>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="note-box full">
-          <strong>💰 INFORMACIÓN IMPORTANTE SOBRE PRECIOS</strong>
-          <p>El costo varía según:</p>
-          <ul>
-            <li>Cantidad de cámaras</li>
-            <li>Tipo de sistema (cable/inalámbrico)</li>
-            <li>Características adicionales</li>
-            <li>Complejidad de instalación</li>
-            <li>Materiales necesarios</li>
-          </ul>
-          <p>📞 <em>Le visitaremos para evaluación gratuita y cotización exacta</em></p>
-          <p>🛠️ <em>Incluye: Instalación profesional + garantía por servicio</em></p>
-        </div>
-      </div>
 
-      <!-- ======== Campos para SOPORTE TÉCNICO ======== -->
-      <div id="campos-soporte" class="campo-especifico oculto">
-        <h3>🛠️ Información Específica para Soporte Técnico</h3>
-        
-        <div class="form-group">
-          <label for="tipo_problema_soporte">🔧 ¿Qué tipo de asistencia necesita?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="problema_software" name="tipo_problema_soporte" value="Problemas con software/programas" required>
-              <label for="problema_software">Problemas con software/programas</label>
+        <!-- Términos y Condiciones -->
+        <div class="terminos">
+          <h3>✅ Aceptación de Términos</h3>
+          <div class="terminos-checkboxes">
+            <div class="terminos-item">
+              <input type="checkbox" id="acepto_politicas" name="acepto_politicas" required>
+              <label for="acepto_politicas">He leído y acepto las políticas de privacidad</label>
             </div>
-            <div class="radio-item">
-              <input type="radio" id="problema_configuracion" name="tipo_problema_soporte" value="Configuración de dispositivos" required>
-              <label for="problema_configuracion">Configuración de dispositivos</label>
+            <div class="terminos-item">
+              <input type="checkbox" id="acepto_terminos" name="acepto_terminos" required>
+              <label for="acepto_terminos">Acepto los términos y condiciones del servicio</label>
             </div>
-            <div class="radio-item">
-              <input type="radio" id="problema_instalacion" name="tipo_problema_soporte" value="Instalación de programas" required>
-              <label for="problema_instalacion">Instalación de programas</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="problema_optimizacion" name="tipo_problema_soporte" value="Optimización del sistema" required>
-              <label for="problema_optimizacion">Optimización del sistema</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="problema_asesoria" name="tipo_problema_soporte" value="Asesoría técnica general" required>
-              <label for="problema_asesoria">Asesoría técnica general</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="problema_otro_soporte" name="tipo_problema_soporte" value="Otro" required>
-              <label for="problema_otro_soporte">Otro:</label>
-              <input type="text" id="otro_problema_soporte" name="otro_problema_soporte" style="display: none;">
+            <div class="terminos-item">
+              <input type="checkbox" id="autorizo_datos" name="autorizo_datos" required>
+              <label for="autorizo_datos">Autorizo el tratamiento de mis datos personales</label>
             </div>
           </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="dispositivos_soporte">💻 ¿En qué dispositivo(s) necesita ayuda?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="dispositivo_escritorio" name="dispositivos_soporte" value="Computadora de escritorio" required>
-              <label for="dispositivo_escritorio">Computadora de escritorio</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="dispositivo_laptop" name="dispositivos_soporte" value="Laptop" required>
-              <label for="dispositivo_laptop">Laptop</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="dispositivo_celular" name="dispositivos_soporte" value="Celular/Tablet" required>
-              <label for="dispositivo_celular">Celular/Tablet</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="dispositivo_impresora" name="dispositivos_soporte" value="Impresora/Escáner" required>
-              <label for="dispositivo_impresora">Impresora/Escáner</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="dispositivo_red" name="dispositivos_soporte" value="Red/WiFi doméstica" required>
-              <label for="dispositivo_red">Red/WiFi doméstica</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="dispositivo_multiples" name="dispositivos_soporte" value="Múltiples dispositivos" required>
-              <label for="dispositivo_multiples">Múltiples dispositivos</label>
-            </div>
+          <div class="terminos-links">
+            <a href="politicas.html" target="_blank">Políticas de privacidad</a>
+            <a href="terminos.html" target="_blank">Términos y condiciones</a>
           </div>
         </div>
-        
-        <div class="form-group">
-          <label for="urgencia_soporte">⏰ ¿Qué tan urgente es el problema?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="urgencia_critico" name="urgencia_soporte" value="Crítico - No puedo trabajar/estudiar" required>
-              <label for="urgencia_critico">Crítico - No puedo trabajar/estudiar</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="urgencia_importante" name="urgencia_soporte" value="Importante - Afecta mi productividad" required>
-              <label for="urgencia_importante">Importante - Afecta mi productividad</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="urgencia_moderado" name="urgencia_soporte" value="Moderado - Molesto pero funcional" required>
-              <label for="urgencia_moderado">Moderado - Molesto pero funcional</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="urgencia_consulta" name="urgencia_soporte" value="Consulta - Solo necesito asesoría" required>
-              <label for="urgencia_consulta">Consulta - Solo necesito asesoría</label>
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="modalidad_soporte">📞 ¿Cómo prefiere el servicio?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="modalidad_presencial" name="modalidad_soporte" value="Presencial (visita a domicilio)" required>
-              <label for="modalidad_presencial">Presencial (visita a domicilio)</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="modalidad_remoto" name="modalidad_soporte" value="Remoto (acceso por internet)" required>
-              <label for="modalidad_remoto">Remoto (acceso por internet)</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="modalidad_telefonico" name="modalidad_soporte" value="Telefónico (guía paso a paso)" required>
-              <label for="modalidad_telefonico">Telefónico (guía paso a paso)</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="modalidad_nose" name="modalidad_soporte" value="No estoy seguro" required>
-              <label for="modalidad_nose">No estoy seguro</label>
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group full">
-          <label for="descripcion_especifica_soporte">📝 Describa el problema en detalle:</label>
-          <textarea id="descripcion_especifica_soporte" name="descripcion_especifica_soporte" required placeholder="Describa exactamente qué está pasando, qué mensajes de error ve, qué estaba haciendo cuando ocurrió el problema..."></textarea>
-          <div class="info-text">💡 <em>Sea específico: ¿Qué estaba haciendo cuando ocurrió? ¿Qué mensajes de error ve?</em></div>
-        </div>
-        
-        <div class="form-group">
-          <label for="intentos_previos_soporte">🔄 ¿Ya intentó solucionarlo?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="intento_reinicio_soporte" name="intentos_previos_soporte" value="Sí, reinicié el dispositivo" required>
-              <label for="intento_reinicio_soporte">Sí, reinicié el dispositivo</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="intento_internet" name="intentos_previos_soporte" value="Sí, busqué en internet" required>
-              <label for="intento_internet">Sí, busqué en internet</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="intento_varias" name="intentos_previos_soporte" value="Sí, intenté varias soluciones" required>
-              <label for="intento_varias">Sí, intenté varias soluciones</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="intento_primera" name="intentos_previos_soporte" value="No, es la primera vez" required>
-              <label for="intento_primera">No, es la primera vez</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="intento_nose" name="intentos_previos_soporte" value="No sé por dónde empezar" required>
-              <label for="intento_nose">No sé por dónde empezar</label>
-            </div>
-          </div>
-        </div>
-        
-        <div id="software_especifico" class="form-group full oculto">
-          <label>📦 Si es problema de software:</label>
-          <div class="checkbox-group">
-            <div class="checkbox-item">
-              <input type="checkbox" id="software_office_soporte" name="software_especifico" value="Microsoft Office">
-              <label for="software_office_soporte">Microsoft Office</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="software_navegadores_soporte" name="software_especifico" value="Navegadores web">
-              <label for="software_navegadores_soporte">Navegadores web</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="software_antivirus_soporte" name="software_especifico" value="Antivirus/Seguridad">
-              <label for="software_antivirus_soporte">Antivirus/Seguridad</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="software_diseno_soporte" name="software_especifico" value="Programas de diseño">
-              <label for="software_diseno_soporte">Programas de diseño</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="software_juegos_soporte" name="software_especifico" value="Juegos/Entretenimiento">
-              <label for="software_juegos_soporte">Juegos/Entretenimiento</label>
-            </div>
-            <div class="checkbox-item">
-              <input type="checkbox" id="software_otro_soporte" name="software_especifico" value="Otro">
-              <label for="software_otro_soporte">Otro:</label>
-              <input type="text" id="otro_software_soporte" name="otro_software_soporte" style="display: none;">
-            </div>
-          </div>
-        </div>
-        
-        <div class="form-group">
-          <label for="horario_preferido_soporte">🕒 ¿Cuándo necesita la asistencia?</label>
-          <div class="radio-group">
-            <div class="radio-item">
-              <input type="radio" id="horario_urgente" name="horario_preferido_soporte" value="Urgente - Hoy mismo" required>
-              <label for="horario_urgente">Urgente - Hoy mismo</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="horario_24horas" name="horario_preferido_soporte" value="Próximas 24 horas" required>
-              <label for="horario_24horas">Próximas 24 horas</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="horario_semana" name="horario_preferido_soporte" value="Esta semana" required>
-              <label for="horario_semana">Esta semana</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="horario_fin_semana" name="horario_preferido_soporte" value="Fin de semana" required>
-              <label for="horario_fin_semana">Fin de semana</label>
-            </div>
-            <div class="radio-item">
-              <input type="radio" id="horario_flexible" name="horario_preferido_soporte" value="Horario flexible" required>
-              <label for="horario_flexible">Horario flexible</label>
-            </div>
-          </div>
-        </div>
-        
-        <div class="note-box full">
-          <strong>💰 SOPORTE TÉCNICO FLEXIBLE</strong>
-          <p>🎯 <em>Resolvemos:</em></p>
-          <ul>
-            <li>Problemas de software y configuración</li>
-            <li>Instalación y optimización</li>
-            <li>Asesoría técnica personalizada</li>
-            <li>Soluciones prácticas y rápidas</li>
-          </ul>
-          <p>⏱️ <em>Tarifas por tiempo:</em></p>
-          <ul>
-            <li>1 hora: QXXX</li>
-            <li>2 horas: QXXX</li>
-            <li>Paquete mensual: QXXX</li>
-          </ul>
-          <p>📞 <em>Cotizamos según complejidad del problema</em></p>
-        </div>
-      </div>
 
-      <!-- Términos y condiciones -->
-      <div class="terminos">
-        <h3>✅ ACEPTACIÓN DE TÉRMINOS - OBLIGATORIO</h3>
-        <div class="terminos-checkboxes">
-          <div class="terminos-item">
-            <input type="checkbox" id="acepto_politicas" name="acepto_politicas" required>
-            <label for="acepto_politicas">He leído y acepto las políticas de privacidad</label>
-          </div>
-          <div class="terminos-item">
-            <input type="checkbox" id="acepto_terminos" name="acepto_terminos" required>
-            <label for="acepto_terminos">Acepto los términos y condiciones del servicio</label>
-          </div>
-          <div class="terminos-item">
-            <input type="checkbox" id="autorizo_datos" name="autorizo_datos" required>
-            <label for="autorizo_datos">Autorizo el tratamiento de mis datos personales</label>
-          </div>
-        </div>
-        <div class="terminos-links">
-          <a href="politicas.html" target="_blank">🔗 Políticas de privacidad</a>
-          <a href="terminos.html" target="_blank">🔗 Términos y condiciones</a>
-        </div>
-      </div>
-
-      <button type="submit" class="btn-submit">Enviar solicitud</button>
-    </form>
+        <button type="submit" class="btn-submit">Enviar Solicitud</button>
+      </form>
+    </div>
 
     <div id="mensaje-exito"></div>
   </main>
@@ -2111,7 +710,7 @@
     <p>Expertos en reparación y mantenimiento de equipos</p>
   </footer>
 
-  <!-- Firebase SDK -->
+  <!-- Firebase -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-app.js";
     import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.9.1/firebase-firestore.js";
@@ -2128,13 +727,14 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
+    // Elementos DOM
     const form = document.getElementById("formularioContacto");
     const mensajeExito = document.getElementById("mensaje-exito");
     const servicioBanner = document.getElementById("servicioBanner");
     const servicioTitulo = document.getElementById("servicioTitulo");
     const servicioInput = document.getElementById("servicio_solicitado");
 
-    // Mostrar servicio seleccionado desde sessionStorage
+    // Detectar servicio seleccionado al cargar la página
     document.addEventListener("DOMContentLoaded", function() {
       const servicioData = sessionStorage.getItem("servicio_seleccionado");
       
@@ -2148,21 +748,18 @@
         servicioInput.value = textoServicio;
         servicioBanner.classList.remove("oculto");
 
-        // MOSTRAR CAMPOS ESPECÍFICOS según el tipo
-        mostrarCamposPorTipo(servicio.tipo);
-        
-        // Configurar eventos para campos dinámicos
-        configurarEventosDinamicos();
+        // Mostrar campos específicos según el tipo de servicio
+        mostrarCamposEspecificos(servicio.tipo);
       }
     });
 
-    function mostrarCamposPorTipo(tipoServicio) {
-      // Ocultar todos primero
-      document.querySelectorAll(".campo-especifico").forEach(div => {
+    function mostrarCamposEspecificos(tipoServicio) {
+      // Ocultar todos los campos específicos primero
+      document.querySelectorAll(".campos-especificos").forEach(div => {
         div.classList.add("oculto");
       });
-      
-      // Mostrar solo los del tipo correspondiente
+
+      // Mostrar solo los campos del servicio correspondiente
       switch(tipoServicio) {
         case "reparacion":
           document.getElementById("campos-reparacion").classList.remove("oculto");
@@ -2182,78 +779,6 @@
       }
     }
 
-    function configurarEventosDinamicos() {
-      // Eventos para campos "Otro" en radio buttons
-      document.querySelectorAll('input[type="radio"][value="Otro"]').forEach(radio => {
-        radio.addEventListener('change', function() {
-          const textInput = this.parentElement.querySelector('input[type="text"]');
-          if (this.checked) {
-            textInput.style.display = 'inline-block';
-            textInput.required = true;
-          } else {
-            textInput.style.display = 'none';
-            textInput.required = false;
-            textInput.value = '';
-          }
-        });
-      });
-
-      // Evento para mostrar/ocultar motivo sin garantía
-      document.getElementById('garantia_no')?.addEventListener('change', function() {
-        const motivoDiv = document.getElementById('motivo_no_garantia');
-        if (this.checked) {
-          motivoDiv.classList.remove('oculto');
-        } else {
-          motivoDiv.classList.add('oculto');
-        }
-      });
-
-      // Eventos para cámaras - mostrar campos según tipo de servicio
-      document.querySelectorAll('input[name="tipo_servicio_camaras"]').forEach(radio => {
-        radio.addEventListener('change', function() {
-          const cantidadInstalacion = document.getElementById('cantidad_instalacion');
-          const cantidadReparacion = document.getElementById('cantidad_reparacion');
-          const estadoReparacion = document.getElementById('estado_reparacion');
-          
-          if (this.value === 'Instalación nueva de cámaras') {
-            cantidadInstalacion.classList.remove('oculto');
-            cantidadReparacion.classList.add('oculto');
-            estadoReparacion.classList.add('oculto');
-          } else if (this.value === 'Reparación de sistema existente' || this.value === 'Ampliación (agregar más cámaras)') {
-            cantidadInstalacion.classList.add('oculto');
-            cantidadReparacion.classList.remove('oculto');
-            estadoReparacion.classList.remove('oculto');
-          } else {
-            cantidadInstalacion.classList.add('oculto');
-            cantidadReparacion.classList.add('oculto');
-            estadoReparacion.classList.add('oculto');
-          }
-        });
-      });
-
-      // Evento para mostrar campos de archivos específicos en formateo
-      document.querySelectorAll('input[name="archivos_respaldar"]').forEach(radio => {
-        radio.addEventListener('change', function() {
-          const archivosEspecificos = document.getElementById('archivos_especificos');
-          if (this.value !== 'No necesito respaldar nada') {
-            archivosEspecificos.classList.remove('oculto');
-          } else {
-            archivosEspecificos.classList.add('oculto');
-          }
-        });
-      });
-
-      // Evento para mostrar campos de software específico en soporte
-      document.getElementById('problema_software')?.addEventListener('change', function() {
-        const softwareEspecifico = document.getElementById('software_especifico');
-        if (this.checked) {
-          softwareEspecifico.classList.remove('oculto');
-        } else {
-          softwareEspecifico.classList.add('oculto');
-        }
-      });
-    }
-
     function generarCodigoSeguimiento() {
       const letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       let codigo = "";
@@ -2263,6 +788,7 @@
       return codigo;
     }
 
+    // Enviar formulario
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -2288,78 +814,26 @@
       // Recolectar datos específicos según el tipo de servicio
       switch(servicio.tipo) {
         case 'reparacion':
-          data.tipo_equipo = document.querySelector('input[name="tipo_equipo_reparacion"]:checked')?.value || '';
-          data.marca_equipo = document.getElementById('marca_equipo_reparacion')?.value || '';
-          data.modelo_equipo = document.getElementById('modelo_reparacion')?.value || '';
-          data.numero_serie = document.getElementById('numero_serie_reparacion')?.value || '';
-          data.garantia = document.querySelector('input[name="garantia_reparacion"]:checked')?.value || '';
-          data.razon_no_garantia = document.querySelector('input[name="razon_no_garantia"]:checked')?.value || '';
-          data.tipo_falla = document.getElementById('tipo_falla_reparacion')?.value || '';
-          data.cuando_problema = document.querySelector('input[name="cuando_problema"]:checked')?.value || '';
-          data.frecuencia_problema = document.querySelector('input[name="frecuencia_problema"]:checked')?.value || '';
-          data.intento_solucion = document.querySelector('input[name="intento_solucion"]:checked')?.value || '';
-          data.recuperacion_datos = document.querySelector('input[name="recuperacion_datos_reparacion"]:checked')?.value || '';
-          data.reparaciones_anteriores = document.querySelector('input[name="reparaciones_anteriores"]:checked')?.value || '';
-          data.golpes_caidas = document.querySelector('input[name="golpes_caidas"]:checked')?.value || '';
-          data.derrame_liquido = document.querySelector('input[name="derrame_liquido"]:checked')?.value || '';
+          data.tipo_equipo = document.querySelector('input[name="tipo_equipo"]:checked')?.value || '';
+          data.marca_equipo = document.getElementById('marca_equipo')?.value || '';
+          data.modelo_equipo = document.getElementById('modelo_equipo')?.value || '';
+          data.garantia = document.querySelector('input[name="garantia"]:checked')?.value || '';
           break;
-          
         case 'mantenimiento':
-          data.tipo_equipo = document.querySelector('input[name="tipo_equipo_mantenimiento"]:checked')?.value || '';
-          data.cantidad_equipos = document.querySelector('input[name="cantidad_equipos_mantenimiento"]:checked')?.value || '';
-          data.frecuencia = document.querySelector('input[name="frecuencia_mantenimiento"]:checked')?.value || '';
-          data.uso_equipo = document.querySelector('input[name="uso_equipo_mantenimiento"]:checked')?.value || '';
-          data.servicios_seleccionados = Array.from(document.querySelectorAll('input[name="servicios_mantenimiento"]:checked')).map(cb => cb.value).join(', ');
-          data.velocidad_equipo = document.querySelector('input[name="velocidad_equipo"]:checked')?.value || '';
-          data.problemas_equipo = document.querySelector('input[name="problemas_equipo"]:checked')?.value || '';
-          data.ultimo_mantenimiento = document.querySelector('input[name="ultimo_mantenimiento"]:checked')?.value || '';
-          data.contrasena_administrador = document.querySelector('input[name="contrasena_administrador"]:checked')?.value || '';
-          data.respaldo_archivos = document.querySelector('input[name="respaldo_archivos"]:checked')?.value || '';
-          data.dias_preferidos = document.querySelector('input[name="dias_preferidos"]:checked')?.value || '';
-          data.horario_preferido = document.querySelector('input[name="horario_preferido"]:checked')?.value || '';
-          data.software_especializado = document.querySelector('input[name="software_especializado"]:checked')?.value || '';
-          data.instalacion_software = document.querySelector('input[name="instalacion_software"]:checked')?.value || '';
+          data.tipo_equipo_mantenimiento = document.querySelector('input[name="tipo_equipo_mantenimiento"]:checked')?.value || '';
+          data.cantidad_equipos = document.querySelector('input[name="cantidad_equipos"]:checked')?.value || '';
           break;
-          
         case 'formateo':
-          data.tipo_equipo = document.querySelector('input[name="tipo_equipo_formateo"]:checked')?.value || '';
-          data.estado_equipo = document.querySelector('input[name="estado_equipo_formateo"]:checked')?.value || '';
-          data.sistema_operativo = document.querySelector('input[name="sistema_operativo_formateo"]:checked')?.value || '';
-          data.archivos_respaldar = document.querySelector('input[name="archivos_respaldar"]:checked')?.value || '';
-          data.donde_respaldo = document.querySelector('input[name="donde_respaldo"]:checked')?.value || '';
-          data.archivos_especificos = Array.from(document.querySelectorAll('input[name="archivos_especificos"]:checked')).map(cb => cb.value).join(', ');
-          data.programas_reinstalar = Array.from(document.querySelectorAll('input[name="programas_reinstalar"]:checked')).map(cb => cb.value).join(', ');
-          data.configuraciones_especiales = Array.from(document.querySelectorAll('input[name="configuraciones_especiales"]:checked')).map(cb => cb.value).join(', ');
-          data.cuenta_microsoft = document.querySelector('input[name="cuenta_microsoft"]:checked')?.value || '';
-          data.licencias_software = document.querySelector('input[name="licencias_software"]:checked')?.value || '';
-          data.confirmacion_formateo = document.querySelector('input[name="confirmacion_formateo"]:checked')?.value || '';
+          data.sistema_operativo = document.querySelector('input[name="sistema_operativo"]:checked')?.value || '';
+          data.respaldo = document.querySelector('input[name="respaldo"]:checked')?.value || '';
           break;
-          
         case 'camaras':
-          data.tipo_servicio = document.querySelector('input[name="tipo_servicio_camaras"]:checked')?.value || '';
-          data.tipo_propiedad = document.querySelector('input[name="tipo_propiedad_camaras"]:checked')?.value || '';
-          data.cantidad_camaras_nueva = document.querySelector('input[name="cantidad_camaras_nueva"]:checked')?.value || '';
-          data.camaras_reparar = document.getElementById('camaras_reparar')?.value || '';
-          data.camaras_agregar = document.getElementById('camaras_agregar')?.value || '';
-          data.areas_vigilar = Array.from(document.querySelectorAll('input[name="areas_vigilar"]:checked')).map(cb => cb.value).join(', ');
-          data.tipo_sistema = document.querySelector('input[name="tipo_sistema_camaras"]:checked')?.value || '';
-          data.caracteristicas = Array.from(document.querySelectorAll('input[name="caracteristicas_camaras"]:checked')).map(cb => cb.value).join(', ');
-          data.acceso_visualizacion = document.querySelector('input[name="acceso_visualizacion"]:checked')?.value || '';
-          data.que_falla = document.querySelector('input[name="que_falla"]:checked')?.value || '';
-          data.cuando_problema_camaras = document.querySelector('input[name="cuando_problema_camaras"]:checked')?.value || '';
-          data.internet_wifi = document.querySelector('input[name="internet_wifi"]:checked')?.value || '';
-          data.horario_preferido_camaras = document.querySelector('input[name="horario_preferido_camaras"]:checked')?.value || '';
+          data.tipo_propiedad = document.querySelector('input[name="tipo_propiedad"]:checked')?.value || '';
+          data.cantidad_camaras = document.getElementById('cantidad_camaras')?.value || '';
           break;
-          
         case 'soporte':
-          data.tipo_problema = document.querySelector('input[name="tipo_problema_soporte"]:checked')?.value || '';
-          data.dispositivos = document.querySelector('input[name="dispositivos_soporte"]:checked')?.value || '';
-          data.urgencia = document.querySelector('input[name="urgencia_soporte"]:checked')?.value || '';
-          data.modalidad = document.querySelector('input[name="modalidad_soporte"]:checked')?.value || '';
-          data.descripcion_especifica = document.getElementById('descripcion_especifica_soporte')?.value || '';
-          data.intentos_previos = document.querySelector('input[name="intentos_previos_soporte"]:checked')?.value || '';
-          data.software_especifico = Array.from(document.querySelectorAll('input[name="software_especifico"]:checked')).map(cb => cb.value).join(', ');
-          data.horario_preferido = document.querySelector('input[name="horario_preferido_soporte"]:checked')?.value || '';
+          data.tipo_problema = document.querySelector('input[name="tipo_problema"]:checked')?.value || '';
+          data.urgencia = document.querySelector('input[name="urgencia"]:checked')?.value || '';
           break;
       }
 
@@ -2378,14 +852,13 @@
         mensajeExito.style.display = "block";
         form.reset();
         
-        // Ocultar todos los campos específicos después del envío
-        document.querySelectorAll(".campo-especifico").forEach(div => {
+        // Ocultar campos específicos después del envío
+        document.querySelectorAll(".campos-especificos").forEach(div => {
           div.classList.add("oculto");
         });
         servicioBanner.classList.add("oculto");
-        
-        servicioBanner.scrollIntoView({ behavior: "smooth" });
 
+        // Configurar botón copiar
         const btnCopiar = document.getElementById("btnCopiar");
         const codigoSpan = document.getElementById("codigoCopiar");
         btnCopiar.addEventListener("click", () => {
