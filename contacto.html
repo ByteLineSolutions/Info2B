@@ -201,6 +201,7 @@
       padding: 1.5rem;
       margin: 1.5rem 0;
       border: 1px solid rgba(37, 99, 235, 0.2);
+      transition: all 0.3s ease;
     }
 
     .campos-especificos h3 {
@@ -258,6 +259,24 @@
 
     .note-box strong {
       color: var(--accent);
+    }
+
+    /* Clase oculto mejorada */
+    .oculto {
+      opacity: 0;
+      height: 0;
+      overflow: hidden;
+      pointer-events: none;
+      position: absolute;
+      left: -9999px;
+    }
+
+    .campos-especificos:not(.oculto) {
+      opacity: 1;
+      height: auto;
+      overflow: visible;
+      pointer-events: all;
+      position: static;
     }
 
     /* Términos */
@@ -402,10 +421,6 @@
         grid-template-columns: 1fr;
       }
     }
-
-    .oculto {
-      display: none !important;
-    }
   </style>
 </head>
 <body>
@@ -479,15 +494,15 @@
             <label>Tipo de equipo</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="tipo_laptop" name="tipo_equipo" value="Laptop" required>
+                <input type="radio" id="tipo_laptop" name="tipo_equipo" value="Laptop" data-required>
                 <label for="tipo_laptop">Laptop</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="tipo_pc" name="tipo_equipo" value="PC de escritorio" required>
+                <input type="radio" id="tipo_pc" name="tipo_equipo" value="PC de escritorio" data-required>
                 <label for="tipo_pc">PC de escritorio</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="tipo_otro" name="tipo_equipo" value="Otro" required>
+                <input type="radio" id="tipo_otro" name="tipo_equipo" value="Otro" data-required>
                 <label for="tipo_otro">Otro</label>
               </div>
             </div>
@@ -495,7 +510,7 @@
           
           <div class="form-group">
             <label for="marca_equipo">Marca del equipo</label>
-            <select id="marca_equipo" name="marca_equipo" required>
+            <select id="marca_equipo" name="marca_equipo" data-required>
               <option value="">Seleccione la marca</option>
               <option value="Acer">Acer</option>
               <option value="Apple">Apple</option>
@@ -509,7 +524,7 @@
           
           <div class="form-group">
             <label for="modelo_equipo">Modelo del equipo</label>
-            <input type="text" id="modelo_equipo" name="modelo_equipo" required placeholder="Ej: ThinkPad T480">
+            <input type="text" id="modelo_equipo" name="modelo_equipo" data-required placeholder="Ej: ThinkPad T480">
             <div class="info-text">Encuentra el modelo en la etiqueta inferior o en Configuración</div>
           </div>
           
@@ -517,11 +532,11 @@
             <label>¿El equipo tiene garantía?</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="garantia_si" name="garantia" value="Sí" required>
+                <input type="radio" id="garantia_si" name="garantia" value="Sí" data-required>
                 <label for="garantia_si">Sí</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="garantia_no" name="garantia" value="No" required>
+                <input type="radio" id="garantia_no" name="garantia" value="No" data-required>
                 <label for="garantia_no">No</label>
               </div>
             </div>
@@ -536,15 +551,15 @@
             <label>Tipo de equipo</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="mant_laptop" name="tipo_equipo_mantenimiento" value="Laptop" required>
+                <input type="radio" id="mant_laptop" name="tipo_equipo_mantenimiento" value="Laptop" data-required>
                 <label for="mant_laptop">Laptop</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="mant_pc" name="tipo_equipo_mantenimiento" value="PC de escritorio" required>
+                <input type="radio" id="mant_pc" name="tipo_equipo_mantenimiento" value="PC de escritorio" data-required>
                 <label for="mant_pc">PC de escritorio</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="mant_servidor" name="tipo_equipo_mantenimiento" value="Servidor" required>
+                <input type="radio" id="mant_servidor" name="tipo_equipo_mantenimiento" value="Servidor" data-required>
                 <label for="mant_servidor">Servidor</label>
               </div>
             </div>
@@ -554,15 +569,15 @@
             <label>Cantidad de equipos</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="cant_1" name="cantidad_equipos" value="1 equipo" required>
+                <input type="radio" id="cant_1" name="cantidad_equipos" value="1 equipo" data-required>
                 <label for="cant_1">1 equipo</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="cant_2_5" name="cantidad_equipos" value="2-5 equipos" required>
+                <input type="radio" id="cant_2_5" name="cantidad_equipos" value="2-5 equipos" data-required>
                 <label for="cant_2_5">2-5 equipos</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="cant_6_10" name="cantidad_equipos" value="6-10 equipos" required>
+                <input type="radio" id="cant_6_10" name="cantidad_equipos" value="6-10 equipos" data-required>
                 <label for="cant_6_10">6-10 equipos</label>
               </div>
             </div>
@@ -577,15 +592,15 @@
             <label>Sistema operativo requerido</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="win10" name="sistema_operativo" value="Windows 10" required>
+                <input type="radio" id="win10" name="sistema_operativo" value="Windows 10" data-required>
                 <label for="win10">Windows 10</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="win11" name="sistema_operativo" value="Windows 11" required>
+                <input type="radio" id="win11" name="sistema_operativo" value="Windows 11" data-required>
                 <label for="win11">Windows 11</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="linux" name="sistema_operativo" value="Linux" required>
+                <input type="radio" id="linux" name="sistema_operativo" value="Linux" data-required>
                 <label for="linux">Linux</label>
               </div>
             </div>
@@ -595,11 +610,11 @@
             <label>¿Necesita respaldo de archivos?</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="respaldo_si" name="respaldo" value="Sí" required>
+                <input type="radio" id="respaldo_si" name="respaldo" value="Sí" data-required>
                 <label for="respaldo_si">Sí</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="respaldo_no" name="respaldo" value="No" required>
+                <input type="radio" id="respaldo_no" name="respaldo" value="No" data-required>
                 <label for="respaldo_no">No</label>
               </div>
             </div>
@@ -614,15 +629,15 @@
             <label>Tipo de propiedad</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="casa" name="tipo_propiedad" value="Casa" required>
+                <input type="radio" id="casa" name="tipo_propiedad" value="Casa" data-required>
                 <label for="casa">Casa</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="apartamento" name="tipo_propiedad" value="Apartamento" required>
+                <input type="radio" id="apartamento" name="tipo_propiedad" value="Apartamento" data-required>
                 <label for="apartamento">Apartamento</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="local" name="tipo_propiedad" value="Local comercial" required>
+                <input type="radio" id="local" name="tipo_propiedad" value="Local comercial" data-required>
                 <label for="local">Local comercial</label>
               </div>
             </div>
@@ -630,7 +645,7 @@
           
           <div class="form-group">
             <label for="cantidad_camaras">Número de cámaras</label>
-            <input type="number" id="cantidad_camaras" name="cantidad_camaras" min="1" required>
+            <input type="number" id="cantidad_camaras" name="cantidad_camaras" min="1" data-required>
           </div>
         </div>
 
@@ -642,15 +657,15 @@
             <label>Tipo de problema</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="problema_software" name="tipo_problema" value="Software" required>
+                <input type="radio" id="problema_software" name="tipo_problema" value="Software" data-required>
                 <label for="problema_software">Software</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="problema_hardware" name="tipo_problema" value="Hardware" required>
+                <input type="radio" id="problema_hardware" name="tipo_problema" value="Hardware" data-required>
                 <label for="problema_hardware">Hardware</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="problema_red" name="tipo_problema" value="Red/Internet" required>
+                <input type="radio" id="problema_red" name="tipo_problema" value="Red/Internet" data-required>
                 <label for="problema_red">Red/Internet</label>
               </div>
             </div>
@@ -660,15 +675,15 @@
             <label>Urgencia del servicio</label>
             <div class="radio-group">
               <div class="radio-item">
-                <input type="radio" id="urgencia_alta" name="urgencia" value="Alta" required>
+                <input type="radio" id="urgencia_alta" name="urgencia" value="Alta" data-required>
                 <label for="urgencia_alta">Alta (hoy mismo)</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="urgencia_media" name="urgencia" value="Media" required>
+                <input type="radio" id="urgencia_media" name="urgencia" value="Media" data-required>
                 <label for="urgencia_media">Media (esta semana)</label>
               </div>
               <div class="radio-item">
-                <input type="radio" id="urgencia_baja" name="urgencia" value="Baja" required>
+                <input type="radio" id="urgencia_baja" name="urgencia" value="Baja" data-required>
                 <label for="urgencia_baja">Baja (cuando sea posible)</label>
               </div>
             </div>
@@ -754,28 +769,42 @@
     });
 
     function mostrarCamposEspecificos(tipoServicio) {
-      // Ocultar todos los campos específicos primero
+      // Deshabilitar required de todos los campos específicos primero
+      document.querySelectorAll(".campos-especificos input, .campos-especificos select, .campos-especificos textarea").forEach(element => {
+        element.required = false;
+      });
+      
+      // Ocultar todos los campos específicos visualmente
       document.querySelectorAll(".campos-especificos").forEach(div => {
         div.classList.add("oculto");
       });
 
-      // Mostrar solo los campos del servicio correspondiente
+      // Mostrar solo los campos del servicio correspondiente y habilitar required
+      let camposActivos = null;
       switch(tipoServicio) {
         case "reparacion":
-          document.getElementById("campos-reparacion").classList.remove("oculto");
+          camposActivos = document.getElementById("campos-reparacion");
           break;
         case "mantenimiento":
-          document.getElementById("campos-mantenimiento").classList.remove("oculto");
+          camposActivos = document.getElementById("campos-mantenimiento");
           break;
         case "formateo":
-          document.getElementById("campos-formateo").classList.remove("oculto");
+          camposActivos = document.getElementById("campos-formateo");
           break;
         case "camaras":
-          document.getElementById("campos-camaras").classList.remove("oculto");
+          camposActivos = document.getElementById("campos-camaras");
           break;
         case "soporte":
-          document.getElementById("campos-soporte").classList.remove("oculto");
+          camposActivos = document.getElementById("campos-soporte");
           break;
+      }
+
+      if (camposActivos) {
+        camposActivos.classList.remove("oculto");
+        // Habilitar required solo en los campos con data-required
+        camposActivos.querySelectorAll("[data-required]").forEach(element => {
+          element.required = true;
+        });
       }
     }
 
