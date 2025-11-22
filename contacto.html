@@ -487,62 +487,84 @@
         <!-- Campos Específicos por Servicio -->
         
         <!-- REPARACIÓN -->
-        <div id="campos-reparacion" class="campos-especificos oculto">
-          <h3>🔧 Información para Reparación</h3>
-          
-          <div class="form-group">
-            <label>Tipo de equipo</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="tipo_laptop" name="tipo_equipo" value="Laptop" data-required>
-                <label for="tipo_laptop">Laptop</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="tipo_pc" name="tipo_equipo" value="PC de escritorio" data-required>
-                <label for="tipo_pc">PC de escritorio</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="tipo_otro" name="tipo_equipo" value="Otro" data-required>
-                <label for="tipo_otro">Otro</label>
-              </div>
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="marca_equipo">Marca del equipo</label>
-            <select id="marca_equipo" name="marca_equipo" data-required>
-              <option value="">Seleccione la marca</option>
-              <option value="Acer">Acer</option>
-              <option value="Apple">Apple</option>
-              <option value="Asus">Asus</option>
-              <option value="Dell">Dell</option>
-              <option value="HP">HP</option>
-              <option value="Lenovo">Lenovo</option>
-              <option value="Otro">Otro</option>
-            </select>
-          </div>
-          
-          <div class="form-group">
-            <label for="modelo_equipo">Modelo del equipo</label>
-            <input type="text" id="modelo_equipo" name="modelo_equipo" data-required placeholder="Ej: ThinkPad T480">
-            <div class="info-text">Encuentra el modelo en la etiqueta inferior o en Configuración</div>
-          </div>
-          
-          <div class="form-group">
-            <label>¿El equipo tiene garantía?</label>
-            <div class="radio-group">
-              <div class="radio-item">
-                <input type="radio" id="garantia_si" name="garantia" value="Sí" data-required>
-                <label for="garantia_si">Sí</label>
-              </div>
-              <div class="radio-item">
-                <input type="radio" id="garantia_no" name="garantia" value="No" data-required>
-                <label for="garantia_no">No</label>
-              </div>
-            </div>
-          </div>
-        </div>
-
+<!-- REPARACIÓN - CAMPOS MEJORADOS -->
+<div id="campos-reparacion" class="campos-especificos oculto">
+  <h3>🔧 Información Detallada para Reparación</h3>
+  
+  <!-- CAMPO 1: Tipo de equipo -->
+  <div class="form-group">
+    <label>🔧 ¿Qué tipo de equipo necesita reparar?</label>
+    <div class="radio-group">
+      <div class="radio-item">
+        <input type="radio" id="reparacion_laptop" name="tipo_equipo_reparacion" value="Laptop" data-required>
+        <label for="reparacion_laptop">Laptop</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" id="reparacion_pc" name="tipo_equipo_reparacion" value="PC de escritorio" data-required>
+        <label for="reparacion_pc">PC de escritorio</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" id="reparacion_otro" name="tipo_equipo_reparacion" value="Otro" data-required>
+        <label for="reparacion_otro">Otro:</label>
+        <input type="text" id="reparacion_otro_especificar" name="reparacion_otro_especificar" class="campo-condicional" style="display: none;">
+      </div>
+    </div>
+  </div>
+  
+  <!-- CAMPO 2: Marca del equipo -->
+  <div class="form-group">
+    <label for="marca_equipo_reparacion">🏷️ Marca del equipo</label>
+    <select id="marca_equipo_reparacion" name="marca_equipo_reparacion" data-required>
+      <option value="">-- Seleccione la marca --</option>
+      <option value="Acer">Acer</option>
+      <option value="Apple">Apple</option>
+      <option value="Asus">Asus</option>
+      <option value="Dell">Dell</option>
+      <option value="HP">HP</option>
+      <option value="Lenovo">Lenovo</option>
+      <option value="MSI">MSI</option>
+      <option value="Samsung">Samsung</option>
+      <option value="Toshiba">Toshiba</option>
+      <option value="Huawei">Huawei</option>
+      <option value="Xiaomi">Xiaomi</option>
+      <option value="Microsoft">Microsoft</option>
+      <option value="Otro">Otro</option>
+    </select>
+  </div>
+  
+  <!-- CAMPO 3: Modelo específico -->
+  <div class="form-group">
+    <label for="modelo_reparacion">💻 Modelo del equipo</label>
+    <input type="text" id="modelo_reparacion" name="modelo_reparacion" data-required placeholder="Ej: ThinkPad T480, MacBook Pro 2020">
+    <div class="info-text">📝 Encuentra el modelo en la etiqueta inferior o en Configuración > Acerca de</div>
+  </div>
+  
+  <!-- CAMPO 4: Número de serie -->
+  <div class="form-group">
+    <label for="numero_serie_reparacion">🔢 Número de serie del equipo</label>
+    <input type="text" id="numero_serie_reparacion" name="numero_serie_reparacion" data-required>
+    <div class="info-text">📝 Encuentra el número de serie en la etiqueta inferior del equipo</div>
+  </div>
+  
+  <!-- CAMPO 5: Estado de garantía -->
+  <div class="form-group">
+    <label>🛡️ ¿El equipo tiene garantía activa?</label>
+    <div class="radio-group">
+      <div class="radio-item">
+        <input type="radio" id="garantia_si_reparacion" name="garantia_reparacion" value="Sí, tiene garantía vigente" data-required>
+        <label for="garantia_si_reparacion">Sí, tiene garantía vigente</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" id="garantia_no_reparacion" name="garantia_reparacion" value="No, la garantía expiró o no aplica" data-required>
+        <label for="garantia_no_reparacion">No, la garantía expiró o no aplica</label>
+      </div>
+      <div class="radio-item">
+        <input type="radio" id="garantia_nose_reparacion" name="garantia_reparacion" value="No estoy seguro" data-required>
+        <label for="garantia_nose_reparacion">No estoy seguro</label>
+      </div>
+    </div>
+  </div>
+</div>
         <!-- MANTENIMIENTO -->
         <div id="campos-mantenimiento" class="campos-especificos oculto">
           <h3>🛠️ Información para Mantenimiento</h3>
@@ -750,23 +772,29 @@
     const servicioInput = document.getElementById("servicio_solicitado");
 
     // Detectar servicio seleccionado al cargar la página
-    document.addEventListener("DOMContentLoaded", function() {
-      const servicioData = sessionStorage.getItem("servicio_seleccionado");
-      
-      if (servicioData) {
-        const servicio = JSON.parse(servicioData);
-        
-        // Mostrar banner del servicio
-        const precioLimpio = servicio.precio.replace('Desde ', '').trim();
-        const textoServicio = `${servicio.titulo} - Q${precioLimpio}`;
-        servicioTitulo.textContent = textoServicio;
-        servicioInput.value = textoServicio;
-        servicioBanner.classList.remove("oculto");
+// Detectar servicio seleccionado al cargar la página
+document.addEventListener("DOMContentLoaded", function() {
+  const servicioData = sessionStorage.getItem("servicio_seleccionado");
+  
+  if (servicioData) {
+    const servicio = JSON.parse(servicioData);
+    
+    // Mostrar banner del servicio
+    const precioLimpio = servicio.precio.replace('Desde ', '').trim();
+    const textoServicio = `${servicio.titulo} - Q${precioLimpio}`;
+    servicioTitulo.textContent = textoServicio;
+    servicioInput.value = textoServicio;
+    servicioBanner.classList.remove("oculto");
 
-        // Mostrar campos específicos según el tipo de servicio
-        mostrarCamposEspecificos(servicio.tipo);
-      }
-    });
+    // Mostrar campos específicos según el tipo de servicio
+    mostrarCamposEspecificos(servicio.tipo);
+    
+    // ✅ NUEVO: Configurar campos condicionales después de mostrar los campos
+    setTimeout(() => {
+      configurarCamposCondicionales();
+    }, 100);
+  }
+});
 
     function mostrarCamposEspecificos(tipoServicio) {
       // Deshabilitar required de todos los campos específicos primero
@@ -806,6 +834,33 @@
           element.required = true;
         });
       }
+
+      // ... después de mostrarCamposEspecificos() ...
+
+function configurarCamposCondicionales() {
+  // Campo "Otro" en tipo de equipo
+  document.getElementById('reparacion_otro')?.addEventListener('change', function() {
+    const campoOtro = document.getElementById('reparacion_otro_especificar');
+    if (this.checked) {
+      campoOtro.style.display = 'inline-block';
+      campoOtro.setAttribute('data-required', 'true');
+    } else {
+      campoOtro.style.display = 'none';
+      campoOtro.removeAttribute('data-required');
+      campoOtro.value = '';
+    }
+  });
+  
+  // Campo motivo sin garantía (aparece solo si selecciona "No" en garantía)
+  document.getElementById('garantia_no_reparacion')?.addEventListener('change', function() {
+    const motivoGarantia = document.getElementById('motivo_no_garantia');
+    if (this.checked) {
+      motivoGarantia.classList.remove('oculto');
+    } else {
+      motivoGarantia.classList.add('oculto');
+    }
+  });
+}
     }
 
     function generarCodigoSeguimiento() {
