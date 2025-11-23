@@ -463,23 +463,23 @@
           </div>
           
           <div class="form-group">
-            <label for="telefono">📞 Teléfono</label>
+            <label for="telefono"> Teléfono</label>
             <input type="tel" id="telefono" name="telefono" required>
           </div>
           
           <div class="form-group">
-            <label for="dpi">🆔 DPI</label>
+            <label for="dpi"> DPI</label>
             <input type="text" id="dpi" name="dpi" required placeholder="Ej. 1234 56789 0101" pattern="^\d{4}\s\d{5}\s\d{4}$">
           </div>
           
           <div class="form-group">
-            <label for="correo">📧 Correo electrónico</label>
+            <label for="correo"> Correo electrónico</label>
             <input type="email" id="correo" name="correo" required>
           </div>
 
           <!-- Servicio Solicitado -->
           <div class="form-group full">
-            <label for="servicio_solicitado">🎯 Servicio solicitado</label>
+            <label for="servicio_solicitado"> Servicio solicitado</label>
             <input type="text" id="servicio_solicitado" name="servicio_solicitado" readonly style="background: rgba(15, 23, 42, 0.8);">
           </div>
         </div>
@@ -512,7 +512,7 @@
           
           <!-- CAMPO 2: Marca del equipo -->
           <div class="form-group">
-            <label for="marca_equipo_reparacion">🏷️ Marca del equipo</label>
+            <label for="marca_equipo_reparacion"> Marca del equipo</label>
             <select id="marca_equipo_reparacion" name="marca_equipo_reparacion" data-required>
               <option value="">-- Seleccione la marca --</option>
               <option value="Acer">Acer</option>
@@ -535,19 +535,19 @@
           <div class="form-group">
             <label for="modelo_reparacion">💻 Modelo del equipo</label>
             <input type="text" id="modelo_reparacion" name="modelo_reparacion" data-required placeholder="Ej: ThinkPad T480, MacBook Pro 2020">
-            <div class="info-text">📝 Encuentra el modelo en la etiqueta inferior o en Configuración > Acerca de</div>
+            <div class="info-text"> Encuentra el modelo en la etiqueta inferior o en Configuración > Acerca de</div>
           </div>
           
           <!-- CAMPO 4: Número de serie -->
           <div class="form-group">
-            <label for="numero_serie_reparacion">🔢 Número de serie del equipo</label>
+            <label for="numero_serie_reparacion"> Número de serie del equipo</label>
             <input type="text" id="numero_serie_reparacion" name="numero_serie_reparacion" data-required>
-            <div class="info-text">📝 Encuentra el número de serie en la etiqueta inferior del equipo</div>
+            <div class="info-text"> Encuentra el número de serie en la etiqueta inferior del equipo</div>
           </div>
           
           <!-- CAMPO 5: Estado de garantía -->
           <div class="form-group">
-            <label>🛡️ ¿El equipo tiene garantía activa?</label>
+            <label> ¿El equipo tiene garantía activa?</label>
             <div class="radio-group">
               <div class="radio-item">
                 <input type="radio" id="garantia_si_reparacion" name="garantia_reparacion" value="Sí, tiene garantía vigente" data-required>
@@ -566,7 +566,7 @@
           
           <!-- CAMPO 6: Motivo sin garantía (condicional) -->
           <div id="motivo_no_garantia" class="form-group oculto">
-            <label>❓ ¿Por qué no utiliza la garantía?</label>
+            <label> ¿Por qué no utiliza la garantía?</label>
             <div class="radio-group">
               <div class="radio-item">
                 <input type="radio" id="razon_expiro" name="razon_no_garantia" value="La garantía ya expiró">
@@ -590,7 +590,7 @@
           
           <!-- CAMPO 7: Tipo de falla principal -->
           <div class="form-group">
-            <label for="tipo_falla_reparacion">⚠️ ¿Qué problema presenta el equipo?</label>
+            <label for="tipo_falla_reparacion"> ¿Qué problema presenta el equipo?</label>
             <select id="tipo_falla_reparacion" name="tipo_falla_reparacion" data-required>
               <option value="">-- Seleccione el tipo de falla --</option>
               <option value="No enciende">No enciende</option>
@@ -608,7 +608,7 @@
           
           <!-- CAMPO 8: Descripción detallada del problema -->
           <div class="form-group">
-            <label>📝 Cuéntanos más sobre el problema:</label>
+            <label> Cuéntanos más sobre el problema:</label>
             
             <div class="sub-group">
               <label>¿Cuándo empezó el problema?</label>
@@ -680,23 +680,23 @@
           
           <!-- CAMPO 9: Recuperación de datos -->
           <div class="form-group">
-            <label>💾 ¿Necesita recuperar archivos importantes?</label>
+            <label> ¿Necesita recuperar archivos importantes?</label>
             <div class="radio-group">
               <div class="radio-item">
                 <input type="radio" id="recuperacion_si" name="recuperacion_datos_reparacion" value="Sí, tengo archivos importantes por recuperar" data-required>
-                <label for="recuperacion_si">Sí, tengo archivos importantes por recuperar 📞</label>
+                <label for="recuperacion_si">Sí, tengo archivos importantes por recuperar </label>
               </div>
               <div class="radio-item">
                 <input type="radio" id="recuperacion_no" name="recuperacion_datos_reparacion" value="No, solo necesito reparar el equipo" data-required>
                 <label for="recuperacion_no">No, solo necesito reparar el equipo</label>
               </div>
             </div>
-            <div class="info-text">📢 Si selecciona "Sí", nos contactaremos para coordinar la recuperación</div>
+            <div class="info-text"> Si selecciona "Sí", nos contactaremos para coordinar la recuperación</div>
           </div>
           
           <!-- CAMPO 10: Antecedentes del equipo (opcional) -->
           <div class="form-group">
-            <label>📋 Información adicional (opcional):</label>
+            <label> Información adicional (opcional):</label>
             
             <div class="sub-group">
               <label>¿Ha tenido reparaciones anteriores?</label>
@@ -764,7 +764,7 @@
 
         <!-- MANTENIMIENTO -->
         <div id="campos-mantenimiento" class="campos-especificos oculto">
-          <h3>🛠️ Información para Mantenimiento</h3>
+          <h3> Información para Mantenimiento</h3>
           
           <div class="form-group">
             <label>Tipo de equipo</label>
@@ -842,7 +842,7 @@
 
         <!-- CÁMARAS -->
         <div id="campos-camaras" class="campos-especificos oculto">
-          <h3>📹 Información para Cámaras de Seguridad</h3>
+          <h3> Información para Cámaras de Seguridad</h3>
           
           <div class="form-group">
             <label>Tipo de propiedad</label>
@@ -870,7 +870,7 @@
 
         <!-- SOPORTE TÉCNICO -->
         <div id="campos-soporte" class="campos-especificos oculto">
-          <h3>🛠️ Información para Soporte Técnico</h3>
+          <h3> Información para Soporte Técnico</h3>
           
           <div class="form-group">
             <label>Tipo de problema</label>
@@ -911,7 +911,7 @@
 
         <!-- Términos y Condiciones -->
         <div class="terminos">
-          <h3>✅ Aceptación de Términos</h3>
+          <h3> Aceptación de Términos</h3>
           <div class="terminos-checkboxes">
             <div class="terminos-item">
               <input type="checkbox" id="acepto_politicas" name="acepto_politicas" required>
@@ -1157,11 +1157,11 @@
         const nombre = data.nombre_completo.split(" ")[0];
         mensajeExito.innerHTML = `
           <strong>¡Gracias, ${nombre}!</strong> Tu solicitud fue enviada correctamente.<br><br>
-          ✅ Código de seguimiento:
+           Código de seguimiento:
           <code id="codigoCopiar" style="background:rgba(15,23,42,0.6);padding:5px;border-radius:5px;color:var(--success);">${data.codigo_seguimiento}</code>
           <button id="btnCopiar" style="margin-left:10px;padding:3px 8px;font-size:0.9rem;cursor:pointer;background:rgba(37,99,235,0.3);color:var(--light);border:1px solid rgba(255,255,255,0.2);border-radius:6px;">📋 Copiar</button>
           <br><br>
-          Pronto nos pondremos en contacto contigo. 😊
+          Pronto nos pondremos en contacto contigo. 
         `;
         mensajeExito.style.display = "block";
         form.reset();
@@ -1178,14 +1178,14 @@
         btnCopiar.addEventListener("click", () => {
           navigator.clipboard.writeText(codigoSpan.textContent)
             .then(() => { 
-              btnCopiar.textContent = "✅ Copiado"; 
+              btnCopiar.textContent = " Copiado"; 
               setTimeout(() => { btnCopiar.textContent = "📋 Copiar"; }, 2000); 
             })
-            .catch(() => { btnCopiar.textContent = "❌ Error"; });
+            .catch(() => { btnCopiar.textContent = " Error"; });
         });
 
       } catch (error) {
-        mensajeExito.innerHTML = `<span style="color:#ff5252;">❌ Error al enviar: ${error.message}</span>`;
+        mensajeExito.innerHTML = `<span style="color:#ff5252;"> Error al enviar: ${error.message}</span>`;
         mensajeExito.style.display = "block";
       }
     });
