@@ -138,7 +138,6 @@
     <h1>Info.2B</h1>
     <nav>
       <a href="index.html">Inicio</a>
-      <a href="servicios.html">Servicios</a>
       <a href="seguimiento.html">Seguimiento</a>
       <a href="blog.html">Blog</a>
     </nav>
@@ -148,12 +147,12 @@
     <h1>Seguimiento de Trabajo</h1>
 
     <div class="busqueda">
-      <input type="text" id="buscador" placeholder="🔍 Ingresa tu código de seguimiento" />
+      <input type="text" id="buscador" placeholder=" Ingresa tu código de seguimiento" />
     </div>
 
     <div id="resultado" class="resultado" style="display: none;"></div>
     <p id="noEncontrado" class="no-encontrado" style="display: none;">
-      ❌ No se encontró ningún trabajo con ese código.
+       No se encontró ningún trabajo con ese código.
     </p>
   </main>
 
@@ -238,7 +237,7 @@
         resultadoDiv.style.display = 'block';
         noEncontrado.style.display = 'none';
       } catch (error) {
-        console.error("❌ Error al buscar:", error);
+        console.error(" Error al buscar:", error);
         resultadoDiv.innerHTML = `<p style='color:red;'>Error al buscar. Inténtalo más tarde.</p>`;
         resultadoDiv.style.display = 'block';
         noEncontrado.style.display = 'none';
