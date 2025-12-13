@@ -263,20 +263,7 @@
 
     /* Clase oculto mejorada */
     .oculto {
-      opacity: 0;
-      height: 0;
-      overflow: hidden;
-      pointer-events: none;
-      position: absolute;
-      left: -9999px;
-    }
-
-    .campos-especificos:not(.oculto) {
-      opacity: 1;
-      height: auto;
-      overflow: visible;
-      pointer-events: all;
-      position: static;
+      display: none !important;
     }
 
     /* Términos */
@@ -457,34 +444,77 @@
           </div>
           
           <div class="form-group">
-            <label for="nombre_completo"> Nombre completo</label>
+            <label for="nombre_completo">Nombre completo</label>
             <input type="text" id="nombre_completo" name="nombre_completo" required>
           </div>
           
           <div class="form-group">
-            <label for="telefono"> Teléfono</label>
+            <label for="telefono">Teléfono</label>
             <input type="tel" id="telefono" name="telefono" required>
           </div>
           
           <div class="form-group">
-            <label for="dpi"> DPI</label>
+            <label for="dpi">DPI</label>
             <input type="text" id="dpi" name="dpi" required placeholder="Ej. 1234 56789 0101" pattern="^\d{4}\s\d{5}\s\d{4}$">
           </div>
           
           <div class="form-group">
-            <label for="correo"> Correo electrónico</label>
+            <label for="correo">Correo electrónico</label>
             <input type="email" id="correo" name="correo" required>
           </div>
+
+          <!-- Nuevos campos para Guatemala -->
+          <div class="form-group">
+            <label for="pais">País</label>
+            <input type="text" id="pais" name="pais" value="Guatemala" readonly style="background: rgba(15, 23, 42, 0.8);">
+          </div>
+          
+          <div class="form-group">
+            <label for="departamento">Departamento</label>
+            <select id="departamento" name="departamento" required>
+              <option value="">-- Seleccione departamento --</option>
+              <option value="Alta Verapaz">Alta Verapaz</option>
+              <option value="Baja Verapaz">Baja Verapaz</option>
+              <option value="Chimaltenango">Chimaltenango</option>
+              <option value="Chiquimula">Chiquimula</option>
+              <option value="El Progreso">El Progreso</option>
+              <option value="Escuintla">Escuintla</option>
+              <option value="Guatemala">Guatemala</option>
+              <option value="Huehuetenango">Huehuetenango</option>
+              <option value="Izabal">Izabal</option>
+              <option value="Jalapa">Jalapa</option>
+              <option value="Jutiapa">Jutiapa</option>
+              <option value="Petén">Petén</option>
+              <option value="Quetzaltenango">Quetzaltenango</option>
+              <option value="Quiché">Quiché</option>
+              <option value="Retalhuleu">Retalhuleu</option>
+              <option value="Sacatepéquez">Sacatepéquez</option>
+              <option value="San Marcos">San Marcos</option>
+              <option value="Santa Rosa">Santa Rosa</option>
+              <option value="Sololá">Sololá</option>
+              <option value="Suchitepéquez">Suchitepéquez</option>
+              <option value="Totonicapán">Totonicapán</option>
+              <option value="Zacapa">Zacapa</option>
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="municipio">Municipio</label>
+            <select id="municipio" name="municipio" required disabled>
+              <option value="">-- Primero seleccione un departamento --</option>
+            </select>
+          </div>
+        </div>
 
         <!-- Campos Específicos por Servicio -->
         
         <!-- REPARACIÓN COMPLETA -->
         <div id="campos-reparacion" class="campos-especificos oculto">
-          <h3> Información Detallada para Reparación</h3>
+          <h3>Información Detallada para Reparación</h3>
           
           <!-- CAMPO 1: Tipo de equipo -->
           <div class="form-group">
-            <label> ¿Qué tipo de equipo necesita reparar?</label>
+            <label>¿Qué tipo de equipo necesita reparar?</label>
             <div class="radio-group">
               <div class="radio-item">
                 <input type="radio" id="reparacion_laptop" name="tipo_equipo_reparacion" value="Laptop" data-required>
@@ -504,7 +534,7 @@
           
           <!-- CAMPO 2: Marca del equipo -->
           <div class="form-group">
-            <label for="marca_equipo_reparacion"> Marca del equipo</label>
+            <label for="marca_equipo_reparacion">Marca del equipo</label>
             <select id="marca_equipo_reparacion" name="marca_equipo_reparacion" data-required>
               <option value="">-- Seleccione la marca --</option>
               <option value="Acer">Acer</option>
@@ -525,21 +555,21 @@
           
           <!-- CAMPO 3: Modelo específico -->
           <div class="form-group">
-            <label for="modelo_reparacion"> Modelo del equipo</label>
+            <label for="modelo_reparacion">Modelo del equipo</label>
             <input type="text" id="modelo_reparacion" name="modelo_reparacion" data-required placeholder="Ej: ThinkPad T480, MacBook Pro 2020">
-            <div class="info-text"> Encuentra el modelo en la etiqueta inferior o en Configuración > Acerca de</div>
+            <div class="info-text">Encuentra el modelo en la etiqueta inferior o en Configuración > Acerca de</div>
           </div>
           
           <!-- CAMPO 4: Número de serie -->
           <div class="form-group">
-            <label for="numero_serie_reparacion"> Número de serie del equipo</label>
+            <label for="numero_serie_reparacion">Número de serie del equipo</label>
             <input type="text" id="numero_serie_reparacion" name="numero_serie_reparacion" data-required>
-            <div class="info-text"> Encuentra el número de serie en la etiqueta inferior del equipo</div>
+            <div class="info-text">Encuentra el número de serie en la etiqueta inferior del equipo</div>
           </div>
           
           <!-- CAMPO 5: Estado de garantía -->
           <div class="form-group">
-            <label> ¿El equipo tiene garantía activa?</label>
+            <label>¿El equipo tiene garantía activa?</label>
             <div class="radio-group">
               <div class="radio-item">
                 <input type="radio" id="garantia_si_reparacion" name="garantia_reparacion" value="Sí, tiene garantía vigente" data-required>
@@ -558,7 +588,7 @@
           
           <!-- CAMPO 6: Motivo sin garantía (condicional) -->
           <div id="motivo_no_garantia" class="form-group oculto">
-            <label> ¿Por qué no utiliza la garantía?</label>
+            <label>¿Por qué no utiliza la garantía?</label>
             <div class="radio-group">
               <div class="radio-item">
                 <input type="radio" id="razon_expiro" name="razon_no_garantia" value="La garantía ya expiró">
@@ -582,7 +612,7 @@
           
           <!-- CAMPO 7: Tipo de falla principal -->
           <div class="form-group">
-            <label for="tipo_falla_reparacion"> ¿Qué problema presenta el equipo?</label>
+            <label for="tipo_falla_reparacion">¿Qué problema presenta el equipo?</label>
             <select id="tipo_falla_reparacion" name="tipo_falla_reparacion" data-required>
               <option value="">-- Seleccione el tipo de falla --</option>
               <option value="No enciende">No enciende</option>
@@ -600,7 +630,7 @@
           
           <!-- CAMPO 8: Descripción detallada del problema -->
           <div class="form-group">
-            <label> Cuéntanos más sobre el problema:</label>
+            <label>Cuéntanos más sobre el problema:</label>
             
             <div class="sub-group">
               <label>¿Cuándo empezó el problema?</label>
@@ -672,23 +702,23 @@
           
           <!-- CAMPO 9: Recuperación de datos -->
           <div class="form-group">
-            <label> ¿Necesita recuperar archivos importantes?</label>
+            <label>¿Necesita recuperar archivos importantes?</label>
             <div class="radio-group">
               <div class="radio-item">
                 <input type="radio" id="recuperacion_si" name="recuperacion_datos_reparacion" value="Sí, tengo archivos importantes por recuperar" data-required>
-                <label for="recuperacion_si">Sí, tengo archivos importantes por recuperar </label>
+                <label for="recuperacion_si">Sí, tengo archivos importantes por recuperar</label>
               </div>
               <div class="radio-item">
                 <input type="radio" id="recuperacion_no" name="recuperacion_datos_reparacion" value="No, solo necesito reparar el equipo" data-required>
                 <label for="recuperacion_no">No, solo necesito reparar el equipo</label>
               </div>
             </div>
-            <div class="info-text"> Si selecciona "Sí", nos contactaremos para coordinar la recuperación</div>
+            <div class="info-text">Si selecciona "Sí", nos contactaremos para coordinar la recuperación</div>
           </div>
           
           <!-- CAMPO 10: Antecedentes del equipo (opcional) -->
           <div class="form-group">
-            <label> Información adicional (opcional):</label>
+            <label>Información adicional (opcional):</label>
             
             <div class="sub-group">
               <label>¿Ha tenido reparaciones anteriores?</label>
@@ -756,7 +786,7 @@
 
         <!-- MANTENIMIENTO -->
         <div id="campos-mantenimiento" class="campos-especificos oculto">
-          <h3> Información para Mantenimiento</h3>
+          <h3>Información para Mantenimiento</h3>
           
           <div class="form-group">
             <label>Tipo de equipo</label>
@@ -797,7 +827,7 @@
 
         <!-- FORMATEO -->
         <div id="campos-formateo" class="campos-especificos oculto">
-          <h3>💻 Información para Formateo</h3>
+          <h3>Información para Formateo</h3>
           
           <div class="form-group">
             <label>Sistema operativo requerido</label>
@@ -834,7 +864,7 @@
 
         <!-- CÁMARAS -->
         <div id="campos-camaras" class="campos-especificos oculto">
-          <h3> Información para Cámaras de Seguridad</h3>
+          <h3>Información para Cámaras de Seguridad</h3>
           
           <div class="form-group">
             <label>Tipo de propiedad</label>
@@ -862,7 +892,7 @@
 
         <!-- SOPORTE TÉCNICO -->
         <div id="campos-soporte" class="campos-especificos oculto">
-          <h3> Información para Soporte Técnico</h3>
+          <h3>Información para Soporte Técnico</h3>
           
           <div class="form-group">
             <label>Tipo de problema</label>
@@ -903,7 +933,7 @@
 
         <!-- Términos y Condiciones -->
         <div class="terminos">
-          <h3> Aceptación de Términos</h3>
+          <h3>Aceptación de Términos</h3>
           <div class="terminos-checkboxes">
             <div class="terminos-item">
               <input type="checkbox" id="acepto_politicas" name="acepto_politicas" required>
@@ -923,6 +953,9 @@
             <a href="terminos.html" target="_blank">Términos y condiciones</a>
           </div>
         </div>
+
+        <!-- Campo oculto para servicio solicitado -->
+        <input type="hidden" id="servicio_solicitado" name="servicio_solicitado">
 
         <button type="submit" class="btn-submit">Enviar Solicitud</button>
       </form>
@@ -953,12 +986,171 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
+    // Datos de municipios por departamento
+    const municipiosPorDepartamento = {
+      "Alta Verapaz": [
+        "Cobán", "Santa Cruz Verapaz", "San Cristóbal Verapaz", "Tactic", "Tamahú",
+        "San Miguel Tucurú", "Panzós", "Senahú", "San Pedro Carchá", "San Juan Chamelco",
+        "Lanquín", "Cahabón", "Chisec", "Chahal", "Fray Bartolomé de las Casas",
+        "Santa Catalina La Tinta", "Raxruhá"
+      ],
+      "Baja Verapaz": [
+        "Salamá", "San Miguel Chicaj", "Rabinal", "Cubulco", "Granados", 
+        "Santa Cruz El Chol", "San Jerónimo", "Purulhá"
+      ],
+      "Chimaltenango": [
+        "Chimaltenango", "San José Poaquil", "San Martín Jilotepeque", "Comalapa",
+        "Santa Apolonia", "Tecpán Guatemala", "Patzún", "Pochuta", "Patzicía",
+        "Santa Cruz Balanyá", "Acatenango", "San Pedro Yepocapa", "San Andrés Itzapa",
+        "Parramos", "Zaragoza", "El Tejar"
+      ],
+      "Chiquimula": [
+        "Chiquimula", "San José La Arada", "San Juan Ermita", "Jocotán",
+        "Camotán", "Olopa", "Esquipulas", "Concepción Las Minas", 
+        "Quezaltepeque", "San Jacinto", "Ipala"
+      ],
+      "El Progreso": [
+        "Guastatoya", "Morazán", "San Agustín Acasaguastlán", "San Cristóbal Acasaguastlán",
+        "El Jícaro", "Sansare", "Sanarate", "San Antonio La Paz"
+      ],
+      "Escuintla": [
+        "Escuintla", "Santa Lucía Cotzumalguapa", "La Democracia", "Siquinalá",
+        "Masagua", "Tiquisate", "La Gomera", "Guanagazapa", "San José",
+        "Iztapa", "Palín", "San Vicente Pacaya", "Nueva Concepción"
+      ],
+      "Guatemala": [
+        "Guatemala", "Santa Catarina Pinula", "San José Pinula", "San José del Golfo",
+        "Palencia", "Chinautla", "San Pedro Ayampuc", "Mixco", "San Pedro Sacatepéquez",
+        "San Juan Sacatepéquez", "San Raymundo", "Chuarrancho", "Fraijanes", 
+        "Amatitlán", "Villa Nueva", "Villa Canales", "San Miguel Petapa"
+      ],
+      "Huehuetenango": [
+        "Huehuetenango", "Chiantla", "Malacatancito", "Cuilco", "Nentón",
+        "San Pedro Necta", "Jacaltenango", "Soloma", "Ixtahuacán", "Santa Bárbara",
+        "La Libertad", "La Democracia", "San Miguel Acatán", "San Rafael La Independencia",
+        "Todos Santos Cuchumatán", "San Juan Atitán", "Santa Eulalia", "San Mateo Ixtatán",
+        "Colotenango", "San Sebastián Huehuetenango", "Tectitán", "Concepción Huista",
+        "San Juan Ixcoy", "San Antonio Huista", "San Sebastián Coatán", "Barillas",
+        "Aguacatán", "San Rafael Petzal", "San Gaspar Ixchil", "Santiago Chimaltenango",
+        "Santa Ana Huista", "Unión Cantinil"
+      ],
+      "Izabal": [
+        "Puerto Barrios", "Livingston", "El Estor", "Morales", "Los Amates"
+      ],
+      "Jalapa": [
+        "Jalapa", "San Pedro Pinula", "San Luis Jilotepeque", "San Manuel Chaparrón",
+        "San Carlos Alzatate", "Monjas", "Mataquescuintla"
+      ],
+      "Jutiapa": [
+        "Jutiapa", "El Progreso", "Santa Catarina Mita", "Agua Blanca", 
+        "Asunción Mita", "Yupiltepeque", "Atescatempa", "Jerez", "El Adelanto",
+        "Zapotitlán", "Comapa", "Jalpatagua", "Conguaco", "Moyuta", "Pasaco",
+        "San José Acatempa", "Quesada"
+      ],
+      "Petén": [
+        "Flores", "San José", "San Benito", "San Andrés", "La Libertad",
+        "San Francisco", "Santa Ana", "Dolores", "San Luis", "Sayaxché",
+        "Melchor de Mencos", "Poptún", "Las Cruces", "El Chal"
+      ],
+      "Quetzaltenango": [
+        "Quetzaltenango", "Salcajá", "Olintepeque", "San Carlos Sija", 
+        "Sibilia", "Cabricán", "Cajolá", "San Miguel Siguilá", "Ostuncalco",
+        "San Mateo", "Concepción Chiquirichapa", "San Martín Sacatepéquez",
+        "Almolonga", "Cantel", "Huitán", "Zunil", "Colomba", "San Francisco La Unión",
+        "El Palmar", "Coatepeque", "Génova", "Flores Costa Cuca", "La Esperanza",
+        "Palestina de Los Altos"
+      ],
+      "Quiché": [
+        "Santa Cruz del Quiché", "Chiché", "Chinique", "Zacualpa", 
+        "Chajul", "Chichicastenango", "Patzité", "San Antonio Ilotenango",
+        "San Pedro Jocopilas", "Cunén", "San Juan Cotzal", "Joyabaj",
+        "Nebaj", "San Andrés Sajcabajá", "Uspantán", "Sacapulas", 
+        "San Bartolomé Jocotenango", "Canillá", "Chicamán", "Ixcán",
+        "Pachalum"
+      ],
+      "Retalhuleu": [
+        "Retalhuleu", "San Sebastián", "Santa Cruz Muluá", "San Martín Zapotitlán",
+        "San Felipe", "San Andrés Villa Seca", "Champerico", "Nuevo San Carlos",
+        "El Asintal"
+      ],
+      "Sacatepéquez": [
+        "Antigua Guatemala", "Jocotenango", "Pastores", "Sumpango",
+        "Santo Domingo Xenacoj", "Santiago Sacatepéquez", "San Bartolomé Milpas Altas",
+        "San Lucas Sacatepéquez", "Santa Lucía Milpas Altas", "Magdalena Milpas Altas",
+        "Santa María de Jesús", "Ciudad Vieja", "San Miguel Dueñas", "Alotenango",
+        "San Antonio Aguas Calientes", "Santa Catarina Barahona"
+      ],
+      "San Marcos": [
+        "San Marcos", "San Pedro Sacatepéquez", "San Antonio Sacatepéquez",
+        "Comitancillo", "San Miguel Ixtahuacán", "Concepción Tutuapa",
+        "Tacaná", "Sibinal", "Tajumulco", "Tejutla", "San Rafael Pie de la Cuesta",
+        "Nuevo Progreso", "El Tumbador", "El Rodeo", "Malacatán", "Catarina",
+        "Ayutla", "Ocós", "San Pablo", "El Quetzal", "La Reforma",
+        "Pajapita", "Ixchiguán", "San José Ojetenam", "San Cristóbal Cucho",
+        "Sipacapa", "Esquipulas Palo Gordo", "Río Blanco", "San Lorenzo"
+      ],
+      "Santa Rosa": [
+        "Cuilapa", "Barberena", "Santa Rosa de Lima", "Casillas", 
+        "San Rafael Las Flores", "Oratorio", "San Juan Tecuaco", 
+        "Chiquimulilla", "Taxisco", "Santa María Ixhuatán", 
+        "Guazacapán", "Santa Cruz Naranjo", "Pueblo Nuevo Viñas", 
+        "Nueva Santa Rosa"
+      ],
+      "Sololá": [
+        "Sololá", "San José Chacayá", "Santa María Visitación", 
+        "Santa Lucía Utatlán", "Nahualá", "Santa Catarina Ixtahuacán",
+        "Santa Clara La Laguna", "Concepción", "San Andrés Semetabaj",
+        "Panajachel", "Santa Catarina Palopó", "San Antonio Palopó",
+        "San Lucas Tolimán", "Santa Cruz La Laguna", "San Pablo La Laguna",
+        "San Marcos La Laguna", "San Juan La Laguna", "San Pedro La Laguna",
+        "Santiago Atitlán"
+      ],
+      "Suchitepéquez": [
+        "Mazatenango", "Cuyotenango", "San Francisco Zapotitlán", 
+        "San Bernardino", "San José El Ídolo", "Santo Domingo Suchitepéquez",
+        "San Lorenzo", "Samayac", "San Pablo Jocopilas", "San Antonio Suchitepéquez",
+        "San Miguel Panán", "San Gabriel", "Chicacao", "Patulul", 
+        "Santa Bárbara", "San Juan Bautista", "Santo Tomás La Unión",
+        "Zunilito", "Pueblo Nuevo", "Río Bravo"
+      ],
+      "Totonicapán": [
+        "Totonicapán", "San Cristóbal Totonicapán", "San Francisco El Alto",
+        "San Andrés Xecul", "Momostenango", "Santa María Chiquimula",
+        "Santa Lucía La Reforma", "San Bartolo"
+      ],
+      "Zacapa": [
+        "Zacapa", "Estanzuela", "Río Hondo", "Gualán", "Teculután",
+        "Usumatlán", "Cabañas", "San Diego", "La Unión", "Huité"
+      ]
+    };
+
     // Elementos DOM
     const form = document.getElementById("formularioContacto");
     const mensajeExito = document.getElementById("mensaje-exito");
     const servicioBanner = document.getElementById("servicioBanner");
     const servicioTitulo = document.getElementById("servicioTitulo");
     const servicioInput = document.getElementById("servicio_solicitado");
+    const selectDepartamento = document.getElementById("departamento");
+    const selectMunicipio = document.getElementById("municipio");
+
+    // Configurar dependencia departamento-municipio
+    selectDepartamento.addEventListener("change", function() {
+      const departamentoSeleccionado = this.value;
+      selectMunicipio.innerHTML = '<option value="">-- Seleccione municipio --</option>';
+      
+      if (departamentoSeleccionado && municipiosPorDepartamento[departamentoSeleccionado]) {
+        selectMunicipio.disabled = false;
+        municipiosPorDepartamento[departamentoSeleccionado].forEach(municipio => {
+          const option = document.createElement("option");
+          option.value = municipio;
+          option.textContent = municipio;
+          selectMunicipio.appendChild(option);
+        });
+      } else {
+        selectMunicipio.disabled = true;
+        selectMunicipio.innerHTML = '<option value="">-- Primero seleccione un departamento --</option>';
+      }
+    });
 
     // Detectar servicio seleccionado al cargar la página
     document.addEventListener("DOMContentLoaded", function() {
@@ -1026,51 +1218,67 @@
 
     function configurarCamposCondicionales() {
       // Campo "Otro" en tipo de equipo
-      document.getElementById('reparacion_otro')?.addEventListener('change', function() {
-        const campoOtro = document.getElementById('reparacion_otro_especificar');
-        if (this.checked) {
-          campoOtro.style.display = 'inline-block';
-          campoOtro.setAttribute('data-required', 'true');
-        } else {
-          campoOtro.style.display = 'none';
-          campoOtro.removeAttribute('data-required');
-          campoOtro.value = '';
-        }
-      });
+      const reparacionOtro = document.getElementById('reparacion_otro');
+      if (reparacionOtro) {
+        reparacionOtro.addEventListener('change', function() {
+          const campoOtro = document.getElementById('reparacion_otro_especificar');
+          if (this.checked) {
+            campoOtro.style.display = 'inline-block';
+            campoOtro.setAttribute('data-required', 'true');
+            campoOtro.required = true;
+          } else {
+            campoOtro.style.display = 'none';
+            campoOtro.removeAttribute('data-required');
+            campoOtro.required = false;
+            campoOtro.value = '';
+          }
+        });
+      }
       
       // Campo motivo sin garantía
-      document.getElementById('garantia_no_reparacion')?.addEventListener('change', function() {
-        const motivoGarantia = document.getElementById('motivo_no_garantia');
-        if (this.checked) {
-          motivoGarantia.classList.remove('oculto');
-        } else {
-          motivoGarantia.classList.add('oculto');
-        }
-      });
+      const garantiaNo = document.getElementById('garantia_no_reparacion');
+      if (garantiaNo) {
+        garantiaNo.addEventListener('change', function() {
+          const motivoGarantia = document.getElementById('motivo_no_garantia');
+          if (this.checked) {
+            motivoGarantia.classList.remove('oculto');
+          } else {
+            motivoGarantia.classList.add('oculto');
+          }
+        });
+      }
       
       // Campo "Otro motivo" en garantía
-      document.getElementById('razon_otro')?.addEventListener('change', function() {
-        const campoOtroRazon = document.getElementById('otro_razon_garantia');
-        if (this.checked) {
-          campoOtroRazon.style.display = 'inline-block';
-        } else {
-          campoOtroRazon.style.display = 'none';
-          campoOtroRazon.value = '';
-        }
-      });
+      const razonOtro = document.getElementById('razon_otro');
+      if (razonOtro) {
+        razonOtro.addEventListener('change', function() {
+          const campoOtroRazon = document.getElementById('otro_razon_garantia');
+          if (this.checked) {
+            campoOtroRazon.style.display = 'inline-block';
+          } else {
+            campoOtroRazon.style.display = 'none';
+            campoOtroRazon.value = '';
+          }
+        });
+      }
       
       // Campo "Otro" en intentos de solución
-      document.getElementById('intento_otro')?.addEventListener('change', function() {
-        const campoOtroIntento = document.getElementById('otro_intento');
-        if (this.checked) {
-          campoOtroIntento.style.display = 'inline-block';
-          campoOtroIntento.setAttribute('data-required', 'true');
-        } else {
-          campoOtroIntento.style.display = 'none';
-          campoOtroIntento.removeAttribute('data-required');
-          campoOtroIntento.value = '';
-        }
-      });
+      const intentoOtro = document.getElementById('intento_otro');
+      if (intentoOtro) {
+        intentoOtro.addEventListener('change', function() {
+          const campoOtroIntento = document.getElementById('otro_intento');
+          if (this.checked) {
+            campoOtroIntento.style.display = 'inline-block';
+            campoOtroIntento.setAttribute('data-required', 'true');
+            campoOtroIntento.required = true;
+          } else {
+            campoOtroIntento.style.display = 'none';
+            campoOtroIntento.removeAttribute('data-required');
+            campoOtroIntento.required = false;
+            campoOtroIntento.value = '';
+          }
+        });
+      }
     }
 
     function generarCodigoSeguimiento() {
@@ -1089,13 +1297,22 @@
       const servicioData = sessionStorage.getItem("servicio_seleccionado");
       const servicio = servicioData ? JSON.parse(servicioData) : { titulo: '', tipo: '' };
 
+      // Validar que se haya seleccionado departamento y municipio
+      if (!selectDepartamento.value || !selectMunicipio.value) {
+        alert("Por favor, seleccione su departamento y municipio.");
+        return;
+      }
+
       // Recolectar datos básicos
       const data = {
         nombre_completo: form.nombre_completo.value.trim(),
         telefono: form.telefono.value.trim(),
         dpi: form.dpi.value.trim(),
         correo: form.correo.value.trim(),
-        servicio_solicitado: form.servicio_solicitado.value.trim(),
+        pais: "Guatemala",
+        departamento: selectDepartamento.value,
+        municipio: selectMunicipio.value,
+        servicio_solicitado: servicioInput.value.trim(),
         acepto_politicas: form.acepto_politicas.checked,
         acepto_terminos: form.acepto_terminos.checked,
         autorizo_datos: form.autorizo_datos.checked,
@@ -1158,6 +1375,10 @@
         mensajeExito.style.display = "block";
         form.reset();
         
+        // Resetear departamento y municipio
+        selectMunicipio.disabled = true;
+        selectMunicipio.innerHTML = '<option value="">-- Primero seleccione un departamento --</option>';
+        
         // Ocultar campos específicos después del envío
         document.querySelectorAll(".campos-especificos").forEach(div => {
           div.classList.add("oculto");
@@ -1167,16 +1388,19 @@
         // Configurar botón copiar
         const btnCopiar = document.getElementById("btnCopiar");
         const codigoSpan = document.getElementById("codigoCopiar");
-        btnCopiar.addEventListener("click", () => {
-          navigator.clipboard.writeText(codigoSpan.textContent)
-            .then(() => { 
-              btnCopiar.textContent = " Copiado"; 
-              setTimeout(() => { btnCopiar.textContent = "📋 Copiar"; }, 2000); 
-            })
-            .catch(() => { btnCopiar.textContent = " Error"; });
-        });
+        if (btnCopiar && codigoSpan) {
+          btnCopiar.addEventListener("click", () => {
+            navigator.clipboard.writeText(codigoSpan.textContent)
+              .then(() => { 
+                btnCopiar.textContent = " Copiado"; 
+                setTimeout(() => { btnCopiar.textContent = "📋 Copiar"; }, 2000); 
+              })
+              .catch(() => { btnCopiar.textContent = " Error"; });
+          });
+        }
 
       } catch (error) {
+        console.error("Error al enviar formulario:", error);
         mensajeExito.innerHTML = `<span style="color:#ff5252;"> Error al enviar: ${error.message}</span>`;
         mensajeExito.style.display = "block";
       }
