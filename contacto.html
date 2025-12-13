@@ -1388,7 +1388,7 @@
             navigator.clipboard.writeText(codigoSpan.textContent)
               .then(() => { 
                 btnCopiar.textContent = " Copiado"; 
-                setTimeout(() => { btnCopiar.textContent = "📋 Copiar"; }, 2000); 
+                setTimeout(() => { btnCopiar.textContent = " Copiar"; }, 2000); 
               })
               .catch(() => { btnCopiar.textContent = " Error"; });
           });
