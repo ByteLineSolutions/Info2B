@@ -636,7 +636,7 @@ function determinarTipoServicio(titulo) {
 
       initModales();
     } catch (err) {
-      console.error("❌ Error al cargar servicios:", err);
+      console.error(" Error al cargar servicios:", err);
     }
   }
 
@@ -648,7 +648,7 @@ function determinarTipoServicio(titulo) {
         if (s) {
           mostrarModal(s);
         } else {
-          console.error("⚠ Servicio no encontrado:", id);
+          console.error(" Servicio no encontrado:", id);
         }
       });
     });
@@ -665,7 +665,7 @@ function mostrarModal(s) {
     const servicioData = {
         titulo: s.titulo,
         precio: s.precio,
-        tipo: determinarTipoServicio(s.titulo), // NUEVO: tipo de servicio
+        tipo: determinarTipoServicio(s.titulo),
         descripcion: s.descripcion_detallada,
         timestamp: new Date().getTime()
     };
