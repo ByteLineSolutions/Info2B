@@ -91,7 +91,7 @@
       const mensaje = document.getElementById('mensaje');
 
       if (!correo || !clave) {
-        mensaje.textContent = '⚠ Todos los campos son obligatorios';
+        mensaje.textContent = 'Todos los campos son obligatorios';
         return;
       }
 
@@ -100,7 +100,7 @@
           window.location.href = "usuario.html";
         })
         .catch(error => {
-          mensaje.textContent = '❌ Usuario o contraseña incorrectos';
+          mensaje.textContent = 'Usuario o contraseña incorrectos';
         });
     };
 
