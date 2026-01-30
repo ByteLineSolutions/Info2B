@@ -272,7 +272,7 @@
         btnBuscar.innerHTML = 'Buscar código';
 
         if (querySnapshot.empty) {
-          mostrarError("❌ No se encontraron trabajos con ese DPI.");
+          mostrarError("No se encontraron trabajos con ese DPI.");
           return;
         }
 
@@ -303,14 +303,14 @@
     function mostrarCodigo(codigo) {
       resultado.innerHTML = `
         <div style="text-align: center;">
-          <h3 style="color:#64ffda; margin-top: 0;">✅ Código encontrado</h3>
+          <h3 style="color:#64ffda; margin-top: 0;">Código encontrado</h3>
           <p>Tu código de seguimiento es:</p>
           
           <div class="codigo-container">
             <div class="codigo" id="codigoRecuperado">${codigo}</div>
           </div>
           
-          <button class="btn-copiar" onclick="copiarCodigo()" id="btnCopiar">📋 Copiar código</button>
+          <button class="btn-copiar" onclick="copiarCodigo()" id="btnCopiar">Copiar código</button>
         </div>
         
         <div class="botones">
@@ -330,11 +330,11 @@
       navigator.clipboard.writeText(codigo)
         .then(() => {
           // Mostrar feedback visual
-          btnCopiar.innerHTML = '✅ Código copiado';
+          btnCopiar.innerHTML = 'Código copiado';
           btnCopiar.classList.add('copiado');
           
           setTimeout(() => {
-            btnCopiar.innerHTML = '📋 Copiar código';
+            btnCopiar.innerHTML = 'Copiar código';
             btnCopiar.classList.remove('copiado');
           }, 2000);
         })
@@ -347,11 +347,11 @@
           document.execCommand('copy');
           document.body.removeChild(tempInput);
           
-          btnCopiar.innerHTML = '✅ Código copiado';
+          btnCopiar.innerHTML = 'Código copiado';
           btnCopiar.classList.add('copiado');
           
           setTimeout(() => {
-            btnCopiar.innerHTML = '📋 Copiar código';
+            btnCopiar.innerHTML = 'Copiar código';
             btnCopiar.classList.remove('copiado');
           }, 2000);
         });
